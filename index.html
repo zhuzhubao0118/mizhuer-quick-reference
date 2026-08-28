@@ -1,0 +1,802 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-title" content="蜜珠儿速查">
+<meta name="theme-color" content="#F4F3F1">
+<meta name="description" content="蜜珠儿门店内部项目速查，支持按项目、功效与关键词快速搜索。">
+<link rel="canonical" href="https://quick.mizhuer-train.com/">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="蜜珠儿项目速查">
+<meta property="og:title" content="蜜珠儿 · 项目速查">
+<meta property="og:description" content="门店内部项目速查，手机打开即可快速查询。">
+<meta property="og:url" content="https://quick.mizhuer-train.com/">
+<meta property="og:image" content="https://quick.mizhuer-train.com/og.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="蜜珠儿 · 项目速查">
+<meta name="twitter:description" content="门店内部项目速查，手机打开即可快速查询。">
+<meta name="twitter:image" content="https://quick.mizhuer-train.com/og.png">
+<title>蜜珠儿 · 项目速查</title>
+<style>
+:root{
+  --ink:#1A1A1F;
+  --ink2:#50505C;
+  --ink3:#8E8E9A;
+  --paper:#F4F3F1;
+  --card:#FFFFFF;
+  --line:#E5E3DF;
+  --plum:#5A3F6B;
+  --plum-soft:#F1EBF4;
+  --plum-line:#D9CBE1;
+  --jade:#3F7A5E;
+  --serif:"Songti SC","STSong","Noto Serif SC","Source Han Serif SC",serif;
+  --sans:"PingFang SC","HarmonyOS Sans SC","Microsoft YaHei","Helvetica Neue",sans-serif;
+}
+*{box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+html,body{margin:0;padding:0}
+body{
+  background:var(--paper);
+  color:var(--ink);
+  font-family:var(--sans);
+  font-size:16px;
+  line-height:1.7;
+  -webkit-text-size-adjust:100%;
+}
+.wrap{max-width:680px;margin:0 auto;padding:0 14px 90px}
+
+/* ---------- 顶部 ---------- */
+.top{
+  position:sticky;top:0;z-index:40;
+  background:rgba(244,243,241,.94);
+  backdrop-filter:saturate(180%) blur(12px);
+  border-bottom:1px solid var(--line);
+  padding-top:env(safe-area-inset-top);
+}
+.top-inner{max-width:680px;margin:0 auto;padding:10px 14px 8px}
+.brand{display:flex;align-items:baseline;gap:8px;margin-bottom:9px}
+.brand h1{
+  font-family:var(--serif);font-size:19px;font-weight:600;
+  letter-spacing:.06em;margin:0;color:var(--ink)
+}
+.brand span{font-size:11px;color:var(--ink3);letter-spacing:.14em}
+.searchbox{position:relative}
+.searchbox input{
+  width:100%;border:1px solid var(--line);background:var(--card);
+  border-radius:11px;padding:11px 52px 11px 13px;min-height:44px;
+  font-size:16px;font-family:var(--sans);color:var(--ink);
+  outline:none;
+}
+.searchbox input:focus{border-color:var(--plum);box-shadow:0 0 0 3px var(--plum-soft)}
+.searchbox input::placeholder{color:var(--ink3)}
+.clearbtn{
+  position:absolute;right:0;top:50%;transform:translateY(-50%);
+  border:0;background:transparent;color:var(--ink3);
+  font-size:20px;line-height:1;padding:0;width:44px;height:44px;
+  align-items:center;justify-content:center;cursor:pointer;display:none
+}
+.clearbtn.on{display:flex}
+.chips-wrap{position:relative}
+.chips-wrap::after{
+  content:"";position:absolute;right:-1px;top:0;bottom:0;width:34px;
+  pointer-events:none;background:linear-gradient(90deg,rgba(244,243,241,0),var(--paper));
+  transition:opacity .15s ease
+}
+.chips-wrap.at-end::after{opacity:0}
+.chips{display:flex;gap:6px;overflow-x:auto;padding:9px 0 3px;margin:0 -14px;
+  padding-left:14px;padding-right:36px;scrollbar-width:none;
+  scroll-snap-type:x proximity;overscroll-behavior-x:contain;-webkit-overflow-scrolling:touch}
+.chips::-webkit-scrollbar{display:none}
+.chip{
+  flex:0 0 auto;border:1px solid var(--line);background:var(--card);
+  color:var(--ink2);font-size:13px;font-family:var(--sans);
+  padding:8px 14px;min-height:44px;border-radius:99px;cursor:pointer;
+  white-space:nowrap;scroll-snap-align:start
+}
+.chip[aria-pressed="true"]{background:var(--plum);border-color:var(--plum);color:#fff}
+
+/* ---------- 区块 ---------- */
+.sec{margin:26px 0 0}
+.sec-title{
+  font-family:var(--serif);font-size:13px;letter-spacing:.2em;
+  color:var(--ink3);font-weight:600;margin:0 0 10px 2px
+}
+.hint{font-size:13px;color:var(--ink3);margin:0 0 12px 2px;line-height:1.6}
+
+/* ---------- 定位表 ---------- */
+.oneliners{background:var(--card);border:1px solid var(--line);border-radius:14px;overflow:hidden}
+.ol{
+  display:block;width:100%;text-align:left;background:transparent;border:0;
+  border-bottom:1px solid var(--line);padding:12px 14px;cursor:pointer;font-family:var(--sans)
+}
+.ol:last-child{border-bottom:0}
+.ol:active{background:var(--plum-soft)}
+.ol b{display:block;font-size:15px;font-weight:600;color:var(--ink);margin-bottom:2px}
+.ol i{display:block;font-style:normal;font-size:13.5px;color:var(--ink2);line-height:1.55}
+
+/* ---------- 卡片 ---------- */
+.card{
+  background:var(--card);border:1px solid var(--line);border-radius:14px;
+  margin-bottom:10px;overflow:hidden
+}
+.card-head{
+  display:flex;align-items:flex-start;gap:10px;width:100%;
+  background:transparent;border:0;padding:14px;cursor:pointer;
+  text-align:left;font-family:var(--sans)
+}
+.card-head:active{background:var(--plum-soft)}
+.ch-txt{flex:1;min-width:0}
+.ch-txt b{display:block;font-family:var(--serif);font-size:17px;font-weight:600;letter-spacing:.02em}
+.ch-txt em{display:block;font-style:normal;font-size:13px;color:var(--ink3);margin-top:3px;line-height:1.5}
+.caret{flex:0 0 auto;width:9px;height:9px;margin-top:9px;
+  border-right:1.6px solid var(--ink3);border-bottom:1.6px solid var(--ink3);
+  transform:rotate(45deg);transition:transform .18s ease}
+.card.open .caret{transform:rotate(-135deg);margin-top:12px}
+.card-body{display:none;padding:0 14px 16px}
+.card.open .card-body{display:block}
+
+h4{
+  font-size:12.5px;letter-spacing:.1em;color:var(--plum);
+  font-weight:600;margin:16px 0 7px;font-family:var(--sans)
+}
+h4:first-child{margin-top:4px}
+p{margin:0 0 8px;font-size:15px;color:var(--ink2)}
+ul{margin:0 0 8px;padding-left:0;list-style:none}
+li{position:relative;padding-left:14px;font-size:15px;color:var(--ink2);margin-bottom:4px}
+li::before{content:"";position:absolute;left:2px;top:11px;width:4px;height:4px;
+  border-radius:50%;background:var(--plum-line)}
+.warn{color:#9A3B3B}
+.warn li::before{background:#D9A5A5}
+
+/* ---------- 可复制气泡（签名元素） ---------- */
+.q{
+  position:relative;display:block;width:100%;text-align:left;
+  background:var(--plum-soft);border:1px solid var(--plum-line);
+  border-radius:12px 12px 12px 3px;
+  padding:11px 13px 26px;margin:0 0 8px;cursor:pointer;
+  font-family:var(--sans);font-size:15px;line-height:1.65;color:var(--ink);
+  transition:background .15s ease,border-color .15s ease
+}
+.q:active{background:#E7DCEC}
+.q .tap{
+  position:absolute;right:11px;bottom:7px;
+  font-size:11px;letter-spacing:.1em;color:var(--plum);opacity:.75
+}
+.q.copied{background:#E6F1EA;border-color:#B9D8C7}
+.q.copied .tap{color:var(--jade);opacity:1}
+.q small{display:block;font-size:12px;color:var(--ink3);margin-top:6px;letter-spacing:.02em}
+
+/* ---------- 问答 ---------- */
+.qa{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:14px;margin-bottom:10px}
+.qa>b{display:block;font-family:var(--serif);font-size:16px;margin-bottom:8px}
+
+/* ---------- 规矩 ---------- */
+.rule{background:var(--card);border:1px solid var(--line);border-left:3px solid var(--plum);
+  border-radius:0 14px 14px 0;padding:12px 14px;margin-bottom:9px}
+.rule b{display:block;font-size:15px;margin-bottom:3px}
+.rule span{font-size:14px;color:var(--ink2)}
+
+.empty{display:none;text-align:center;color:var(--ink3);font-size:14px;padding:40px 0}
+.empty.on{display:block}
+.foot{text-align:center;color:var(--ink3);font-size:12px;letter-spacing:.1em;margin-top:34px}
+
+.toast{
+  position:fixed;left:50%;bottom:26px;transform:translate(-50%,20px);
+  background:var(--ink);color:#fff;font-size:13.5px;letter-spacing:.05em;
+  padding:9px 18px;border-radius:99px;opacity:0;pointer-events:none;
+  transition:opacity .2s ease,transform .2s ease;z-index:80
+}
+.toast.on{opacity:1;transform:translate(-50%,0)}
+
+mark{background:#F7E9A8;color:inherit;padding:0 1px;border-radius:2px}
+
+@media (prefers-reduced-motion:reduce){*{transition:none!important}}
+:focus-visible{outline:2px solid var(--plum);outline-offset:2px}
+</style>
+</head>
+<body>
+
+<div class="top">
+  <div class="top-inner">
+    <div class="brand"><h1>蜜珠儿 · 项目速查</h1><span>对内使用</span></div>
+    <div class="searchbox">
+      <input id="s" type="search" aria-label="搜索项目、症状或顾客问题" placeholder="搜：掉头发 / 痛经 / 为什么比别家贵" autocomplete="off">
+      <button class="clearbtn" id="clr" aria-label="清空">×</button>
+    </div>
+    <div class="chips-wrap" id="chipsWrap">
+      <div class="chips" id="chips" role="group" aria-label="项目分类">
+        <button class="chip" data-tag="all" aria-pressed="true">全部</button>
+        <button class="chip" data-tag="choose" aria-pressed="false">我该做哪个</button>
+        <button class="chip" data-tag="cli" aria-pressed="false">超离子</button>
+        <button class="chip" data-tag="indiba" aria-pressed="false">INDIBA</button>
+        <button class="chip" data-tag="hydra" aria-pressed="false">海菲秀</button>
+        <button class="chip" data-tag="benny" aria-pressed="false">野生蓓妮</button>
+        <button class="chip" data-tag="geneo" aria-pressed="false">GeneoX</button>
+        <button class="chip" data-tag="dms" aria-pressed="false">DMS</button>
+        <button class="chip" data-tag="wish" aria-pressed="false">Wishpro</button>
+        <button class="chip" data-tag="qa" aria-pressed="false">常见问答</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="wrap">
+
+<!-- ========== 一句话定位表 ========== -->
+<section class="sec" id="sec-ol" data-sec="ol">
+  <h2 class="sec-title">一句话定位</h2>
+  <p class="hint">顾客问"这是什么"，念这一句就够。点一下跳到完整卡片。</p>
+  <div class="oneliners">
+    <button class="ol" data-go="c-cli"><b>超离子 · 英国 NeoGen</b><i>声光电之外的第四种能量。不修表面，是让皮肤自己重新长。</i></button>
+    <button class="ol" data-go="c-indiba-face"><b>INDIBA 黑金刚 · 面部</b><i>448kHz 内生热，从深层胶原到表层肤质，托举整张脸的走向。</i></button>
+    <button class="ol" data-go="c-indiba-body"><b>INDIBA 黑金刚 · 身体</b><i>全身细胞平衡疗法。躺着完成一场有氧，内外轻盈。</i></button>
+    <button class="ol" data-go="c-indiba-head"><b>INDIBA 黑金刚 · 头部</b><i>448kHz 直达头皮细胞。一次深部透热，相当于8小时深度睡眠。</i></button>
+    <button class="ol" data-go="c-hydra"><b>海菲秀 Syndeo · 美国</b><i>全球最棒的清洁焕肤疗程。清洁、嫩肤、提亮、补水，全效合一。</i></button>
+    <button class="ol" data-go="c-benny"><b>野生蓓妮 · 面部肌肉普拉提</b><i>让肌肉主动工作，自然往上走。下颌线不是画出来的，是肌肉有力了托出来的。</i></button>
+    <button class="ol" data-go="c-geneo"><b>科医人 GeneoX · 以色列</b><i>全球唯一内增氧。做完像憋了很久终于能大口呼吸。</i></button>
+    <button class="ol" data-go="c-dms"><b>德国 DMS 德妍思</b><i>修护届的王者。安安静静让皮肤好起来。</i></button>
+    <button class="ol" data-go="c-wish"><b>Wishpro 唯施葆 · 以色列</b><i>时光胶囊。磁脉冲把成分一路送进去，不破皮，不发热。</i></button>
+  </div>
+</section>
+
+<!-- ========== 我该做哪个 ========== -->
+<section class="sec" data-sec="choose">
+  <h2 class="sec-title">我该做哪个</h2>
+  <p class="hint">最高频的问题。先问顾客最不满意哪一块，再从这里对号。</p>
+
+  <article class="card" data-tag="choose cli indiba" id="c-vs1">
+    <button class="card-head"><span class="ch-txt"><b>超离子 vs INDIBA</b><em>状态，还是形态</em></span><span class="caret"></span></button>
+    <div class="card-body">
+      <h4>怎么分</h4>
+      <p><b>INDIBA 黑金刚</b>解决的是"面部形态"：肌肉支撑、脂肪移位、面部各层次，组织循环与营养交换下降；松、垂、垮，这些都是面部形态。</p>
+      <p><b>NeoGen 超离子</b>解决的是"面部状态"：以改善皮肤老化为目标；光老化和自然老化导致的暗沉、粗糙、弹力和胶原流失；皮肤不够紧密、变薄。</p>
+      <h4>一句话给顾客</h4>
+      <button class="q">觉得脸垮了、松了 → INDIBA；觉得脸糙了、暗了、没光 → 超离子<span class="tap">点一下复制</span></button>
+    </div>
+  </article>
+
+  <article class="card" data-tag="choose cli" id="c-vs2">
+    <button class="card-head"><span class="ch-txt"><b>离子嫩肤 vs 光子嫩肤</b><em>顾客拿光子来比价时用</em></span><span class="caret"></span></button>
+    <div class="card-body">
+      <button class="q">离子是"真·嫩肤"，不是包装出来的概念。第一，刺激大量胶原蛋白，让皮肤从内在撑起来；第二，专有的"热凝固效应"会让皮肤质量新生，光滑细腻。<span class="tap">点一下复制</span></button>
+    </div>
+  </article>
+
+  <article class="card" data-tag="choose cli benny" id="c-vs3">
+    <button class="card-head"><span class="ch-txt"><b>超离子 vs 野生蓓妮</b><em>不冲突，是上下两层</em></span><span class="caret"></span></button>
+    <div class="card-body">
+      <p>超离子做的是皮肤本身。野生蓓妮做的是皮肤底下的那层肌肉。</p>
+      <button class="q">把皮肤地基建牢，我们表层自然就紧致<span class="tap">点一下复制</span></button>
+    </div>
+  </article>
+
+  <article class="card" data-tag="choose hydra geneo" id="c-vs4">
+    <button class="card-head"><span class="ch-txt"><b>海菲秀 vs 科医人 GeneoX</b><em>往外拿，还是往里给</em></span><span class="caret"></span></button>
+    <div class="card-body">
+      <p><b>海菲秀</b>往外拿：清洁、疏通、把脏东西带走。<br><b>GeneoX</b>往里给：增加内源氧，提亮通透。</p>
+      <button class="q">顾客觉得"脏、油、黑头" → 海菲秀；顾客觉得"暗、黄、没气色" → GeneoX<span class="tap">点一下复制</span></button>
+    </div>
+  </article>
+
+  <article class="card" data-tag="choose indiba" id="c-vs5">
+    <button class="card-head"><span class="ch-txt"><b>INDIBA 面部 vs 身体 vs 头部</b><em>顾客不知道该躺哪台时</em></span><span class="caret"></span></button>
+    <div class="card-body">
+      <ul>
+        <li><b>面部</b>——形态问题，松、垂、垮</li>
+        <li><b>身体</b>——代谢、循环、寒、脂肪</li>
+        <li><b>头部</b>——头皮毛囊、睡眠、脑供氧</li>
+      </ul>
+      <p>顾客说"最近掉头发厉害""睡不好""头总是胀"→ 头部。</p>
+      <p>头部和面部不冲突，肩颈通了面部循环也跟着好，很多人是一起排的。</p>
+    </div>
+  </article>
+
+  <article class="card" data-tag="choose indiba dms hydra" id="c-vs6">
+    <button class="card-head"><span class="ch-txt"><b>常用联合方案</b><em>两套现成搭配</em></span><span class="caret"></span></button>
+    <div class="card-body">
+      <h4>INDIBA 黑金刚 ＋ DMS</h4>
+      <button class="q">高智「温感K老公式」细胞年轻态的神仙组合。相比于干燥肌肤，热能刺激后带来的损伤和修复困难，这款根源K老组合，更温润、持久、效果优异<span class="tap">点一下复制</span></button>
+      <h4>海菲秀 ＋ 超光子 / 水光</h4>
+      <button class="q">海菲秀坚持做几次是真的香。白/细腻/干净/炎症也好了很多，尤其当你结合超光子和水光来做，真的更香<span class="tap">点一下复制</span></button>
+    </div>
+  </article>
+</section>
+
+<!-- ========== 项目卡 ========== -->
+<section class="sec" data-sec="proj">
+  <h2 class="sec-title">项目答疑卡</h2>
+  <p class="hint">紫色气泡里的都是原文，点一下复制，直接粘到微信。一次只发一两句。</p>
+
+  <!-- 超离子 -->
+  <article class="card" data-tag="cli" id="c-cli">
+    <button class="card-head"><span class="ch-txt"><b>超离子 · 英国 NeoGen</b><em>声光电之外的第四种能量。不修表面，是让皮肤自己重新长。</em></span><span class="caret"></span></button>
+    <div class="card-body">
+      <h4>适合谁</h4>
+      <ul>
+        <li>想改善皮肤质地的：毛孔、粗糙、暗沉、细纹</li>
+        <li>眼周，尤其上眼皮——很多技术不敢碰这一圈</li>
+        <li>口周、颈部</li>
+        <li>认同长期主义保养的人</li>
+      </ul>
+      <h4>做完什么感觉</h4>
+      <p>不停工，第二天正常上班、正常见人。</p>
+      <h4>什么时候劝退</h4>
+      <p class="warn">皮肤在急性敏感期的，先不做。</p>
+      <h4>可直接引用</h4>
+      <button class="q">脸养到位，卡点大多在眼睛。上眼睑太薄，很多技术不敢碰这一圈，英国超离子，脸、眼、颈都能照顾到<span class="tap">点一下复制</span></button>
+      <button class="q">这个很有趣的能量源与传统的光电设备都不一样，他的神奇魅力对于眼周、口周和皮肤的老化、毛孔、粗糙、暗沉，有近乎神奇的改变<span class="tap">点一下复制</span></button>
+      <button class="q">很多时候显年龄的，不是哪里松了、垂了这种形态变化；而是面部光泽感、细腻度、紧密度都在下降，看起来的疲态与年龄感；超离子能让真皮胶原网格和表皮质感「年轻化再生」，整张脸的状态自然年轻<span class="tap">点一下复制</span></button>
+      <button class="q">在不破坏皮肤屏障、无热损伤的前提下，激活大量I型和III型胶原新生，达到白嫩年轻化、皮肉贴合的精致感年轻，可称之为「仪器版童颜」<span class="tap">点一下复制</span></button>
+      <button class="q">眼部抗衰—英国超离子
+无瑕嫩肤—英国超离子
+紧致小脸—英国超离子
+击退颈纹—英国超离子<span class="tap">点一下复制</span></button>
+      <h4>背书（顾客问"这个品牌行不行"）</h4>
+      <ul>
+        <li>荣获 2026 年度最佳设备奖（伦敦 ACE 国际美学会议）</li>
+        <li>英国 Vogue：凯特王妃的面部护理师 Teresa Tarmey，婚礼前四周密集护理，NeoGen 超离子是其中一项</li>
+        <li>门店 2 万发实战内训</li>
+      </ul>
+    </div>
+  </article>
+
+  <!-- INDIBA 面部 -->
+  <article class="card" data-tag="indiba" id="c-indiba-face">
+    <button class="card-head"><span class="ch-txt"><b>INDIBA 黑金刚 · 面部</b><em>448kHz 内生热，托举整张脸的走向。</em></span><span class="caret"></span></button>
+    <div class="card-body">
+      <h4>适合谁</h4>
+      <ul>
+        <li>松、垂、垮——面部形态问题</li>
+        <li>想要皮贴骨、小紧脸</li>
+        <li>熬夜、高强度工作的"断崖式累丑"</li>
+        <li>推荐"面+颈+眼3件套"</li>
+      </ul>
+      <h4>做完什么感觉</h4>
+      <p>温和、舒适，皮下无炎症刺激。</p>
+      <h4>要做几次</h4>
+      <button class="q">基本上能坚持 INDIBA 黑金刚 5 次以上，圈粉儿率100%，复购率100%<span class="tap">点一下复制</span></button>
+      <h4>顾客问"能不能代替热玛吉"</h4>
+      <button class="q">Indiba黑金刚坚持做的效果在于全面提升皮肤的健康度、光泽感和细腻度，并带来可观的紧致感，是一种高级的、累积性的保养，但是并不能完全替代热玛吉哦，更理想的方案是联合<span class="tap">点一下复制</span></button>
+      <h4>可直接引用</h4>
+      <button class="q">面部全效抗衰护理，最大的意义是在每一次循序渐进的过程中，保持面部的整体结构年轻、稳固<span class="tap">点一下复制</span></button>
+      <button class="q">从深层胶原的激活，到最外层肤质的改善，托举整张脸的走向<span class="tap">点一下复制</span></button>
+      <button class="q">皮下无炎症刺激，温和刺激胶原蛋白，皮帖骨、小紧脸，最最最优选<span class="tap">点一下复制</span></button>
+      <button class="q">INDIBA黑金刚 = 皮贴骨 + 婴儿肌<span class="tap">点一下复制</span></button>
+      <h4>背书</h4>
+      <p>Dior 全球 48 家直营旗舰护理中心同款设备。</p>
+      <button class="q">这是全球高端用户的第一选择，为他们提供一种安全有效的【生命力提案】<span class="tap">点一下复制</span></button>
+    </div>
+  </article>
+
+  <!-- INDIBA 身体 -->
+  <article class="card" data-tag="indiba" id="c-indiba-body">
+    <button class="card-head"><span class="ch-txt"><b>INDIBA 黑金刚 · 身体</b><em>全身细胞平衡疗法。躺着完成一场有氧，内外轻盈。</em></span><span class="caret"></span></button>
+    <div class="card-body">
+      <h4>适合谁</h4>
+      <button class="q">迈不开腿的女生，做！
+脂肪顽固的女生，做！
+畏寒气血不足女生，做！<span class="tap">点一下复制</span></button>
+      <ul>
+        <li>游泳圈、蝴蝶袖</li>
+        <li>肩颈僵硬酸痛</li>
+        <li>腹部（女性最适合保养的部位）</li>
+        <li>产后</li>
+        <li>姨妈疼、关节疼</li>
+      </ul>
+      <h4>做完什么感觉</h4>
+      <button class="q">腰背贴在回路板上，不进行任何额外的物理加热，身体就这样通过电流的传导，一寸寸热起来<span class="tap">点一下复制</span></button>
+      <h4>可直接引用</h4>
+      <button class="q">INDIBA黑金刚——全身细胞平衡疗法，一次 = 4-6小时有氧运动，促进身体机能<span class="tap">点一下复制</span></button>
+      <button class="q">提高全身代谢+循环 / 清除沉积寒症与瘀堵 / 检测身体慢性炎症+修复 / 更新脂肪细胞，加速酶活化 / 紧致塑型<span class="tap">点一下复制</span></button>
+      <button class="q">美容紧致只是INDIBA生物系统中的一小部分，提高生命质量才是它最大的价值<span class="tap">点一下复制</span></button>
+      <button class="q">细胞能量代谢高效、顺畅，代表着：精力充沛、头脑清晰、体温恒定、免疫力强、修复能力强、情绪稳定，感觉浑身有使不完的劲<span class="tap">点一下复制</span></button>
+      <button class="q">从宫寒痛经，到通体舒畅；从说不出的疲惫感，到每天注满活力。在温暖中新生，切切实实地拥有好状态，这是我们推荐INDIBA的理由<span class="tap">点一下复制</span></button>
+      <h4>顾客问"你们这台和别家有什么不一样"（重要）</h4>
+      <button class="q">图1左边—C100，国内门店普遍型号，INDIBA最低版本，最高功率只有100w，达到全身渗透能量耗时长；图1右边—IA 200，国内少数型号，中间版本，最高功率200w；黑金刚—国内极少数型号，咱们是整个上海目前的第3台，INDIBA最高版本，最高功率250w，同样时间内完成目标指令「快、狠、准」<span class="tap">点一下复制</span></button>
+      <button class="q">一次护理顶普通版本2.5次。我们直接购买INDIBA顶配黑金刚，就是因为黑金刚专有的250w功率，是普通版本2.5倍<span class="tap">点一下复制</span></button>
+      <h4>背书</h4>
+      <ul>
+        <li>600多篇科学参考、200多篇临床科学论文</li>
+        <li>2026世界杯西班牙夺冠，冠军球星同款设备</li>
+        <li>在欧美，这是一台常应用在医院的高端治疗设备</li>
+      </ul>
+    </div>
+  </article>
+
+  <!-- INDIBA 头部（新增） -->
+  <article class="card" data-tag="indiba" id="c-indiba-head">
+    <button class="card-head"><span class="ch-txt"><b>INDIBA 黑金刚 · 头部/头皮</b><em>448kHz 直达头皮细胞。一次深部透热，相当于8小时深度睡眠。</em></span><span class="caret"></span></button>
+    <div class="card-body">
+      <h4>三大功效（顾客问"做头部到底管什么"）</h4>
+      <p><b>脑健康</b>——改善脑部供血供氧，缓解头部压力、头痛头晕，提高睡眠质量、改善失眠多梦，平衡内分泌水平</p>
+      <p><b>头皮毛囊</b>——448kHz直达头皮细胞，促进微循环、增加营养供给，激活毛囊活性、强健发根，改善脱发稀疏，增强头发密度</p>
+      <p><b>面部连带</b>——肩颈气血畅通后，面部循环和排毒同步改善，气色自然提亮</p>
+      <h4>适合谁</h4>
+      <ul>
+        <li>频繁落发、脱发、稀疏，想生发的</li>
+        <li>头皮循环不好、头皮发紧</li>
+        <li>失眠多梦、睡眠质量差</li>
+        <li>头痛、偏头痛、三叉神经痛</li>
+        <li>压力大、精神紧张、长期用脑</li>
+        <li>植发前后护理</li>
+      </ul>
+      <h4>做完什么感觉</h4>
+      <p>头皮和肩颈持续微温4-8小时，头部有轻微酸胀感——是循环加速后的放松感。当晚会比平时更容易犯困、睡得更沉，这是好事。</p>
+      <h4>要做几次</h4>
+      <p>每周1-2次，连续4-6周为一个疗程；之后每2周1次长期养护。<br>植发：术前1周开始，术后2周恢复后继续。</p>
+      <h4>术后必须交代的（主动说）</h4>
+      <ul class="warn">
+        <li>4小时内不洗头；洗头用温水轻柔按摩，选温和/舒缓型洗发水</li>
+        <li>48小时内不泡澡、不桑拿、不高温瑜伽</li>
+        <li>这几天不染发烫发，避开强效去屑控油类洗发水</li>
+        <li>多喝水2000ml以上，帮代谢</li>
+      </ul>
+      <h4>什么时候劝退</h4>
+      <p class="warn">孕期全程禁用；心脏起搏器/电子植入物；头皮有开放性伤口、感染、严重炎症。</p>
+      <h4>可直接引用</h4>
+      <button class="q">448kHz直达头皮细胞，促进微循环、增加营养供给，激活毛囊活性、强健发根，改善脱发稀疏<span class="tap">点一下复制</span></button>
+      <button class="q">一次深部透热相当于8小时深度睡眠<span class="tap">点一下复制</span></button>
+      <button class="q">肩颈气血畅通了，面部循环和排毒也跟着好<span class="tap">点一下复制</span></button>
+      <button class="q">头皮应用：生发／睡眠质量不佳／头痛／偏头痛／三叉神经痛／头皮紧张<span class="tap">点一下复制</span><small>INDIBA 原厂应用文件原话</small></button>
+      <h4>护理后关怀（整段发，做完当天）</h4>
+      <button class="q">Hi，咱们今天护理的项目是 INDIBA黑金刚·448kHz头部护理～
+
+主要功效：西班牙40年专利448kHz细胞平衡疗法，一次深部透热相当于8小时深度睡眠~
+
+🧠 脑健康系统：改善脑部供血供氧，缓解头部压力、头痛头晕，提高睡眠质量、改善失眠多梦，平衡内分泌，肩颈气血畅通了面部循环和排毒也跟着好~
+
+🌿 头皮毛囊养护：448kHz直达头皮细胞，促进微循环、增加营养供给，激活毛囊活性、强健发根，改善脱发稀疏~
+
+✨ 面部提亮紧致：促进面部血液循环、加速代谢，紧致肌肤、淡化细纹，肩颈通了气色自然就亮了~
+
+注意事项：做完后头皮和肩颈会持续微温4-8小时（这是448kHz内生热促进代谢的正常现象，相当于给细胞做SPA，不用担心哈），今晚可能会比平时更容易犯困、睡得更香，这是好事~ 4小时内不要洗头，洗头用温水轻柔按摩就好，这几天避免染发烫发，多喝水2000ml以上帮代谢哦。
+
+下次见啦💜<span class="tap">点一下复制整段</span></button>
+    </div>
+  </article>
+
+  <!-- 海菲秀 -->
+  <article class="card" data-tag="hydra" id="c-hydra">
+    <button class="card-head"><span class="ch-txt"><b>海菲秀 Syndeo · 美国 Hydrafacial</b><em>全球最棒的清洁焕肤疗程。清洁、嫩肤、提亮、补水，全效合一。</em></span><span class="caret"></span></button>
+    <div class="card-body">
+      <h4>适合谁</h4>
+      <ul>
+        <li>觉得脸不干净、黑头、油</li>
+        <li>梅雨天、夏天</li>
+        <li>重要场合前</li>
+        <li>想定期做的（这个项目复购最稳）</li>
+      </ul>
+      <h4>做完什么感觉</h4>
+      <p>做完都会获得"小脏水"。安安静静享受不推销的护肤真的很舒服。</p>
+      <h4>要做几次</h4>
+      <button class="q">坚持几次下来，焕亮好气色，藏也藏不住<span class="tap">点一下复制</span></button>
+      <h4>我们和别家的区别（顾客一定会比价）</h4>
+      <button class="q">在Mi ZHUER，有非常多的顾客会有频次的来做海菲秀。因为这些客人都清楚，在这个市场，就没有几个机构在用正品溶液，至少90%吧，这就是为什么很多人说你们的味道不一样、手法不一样、价格不一样<span class="tap">点一下复制</span></button>
+      <button class="q">设备和溶液正品，已经是咱们店不需要再多强调的原则和底线。不是说海菲秀官方三部曲，我们按照这个操作就可以了，对不同顾客肌肤状态进行差异化操作，每一处细节和操作节奏的打磨，是对这个项目的深度理解<span class="tap">点一下复制</span></button>
+      <h4>可直接引用</h4>
+      <button class="q">海菲秀承载着绝对的颜值担当：清洁、嫩肤、提亮、补水、美白、祛痘，恢复皮肤健康，全效合一<span class="tap">点一下复制</span></button>
+      <button class="q">面部清洁项目中的「人间富贵花」<span class="tap">点一下复制</span></button>
+      <button class="q">假期聚会、每逢出席重要场合前，必须做一次海菲秀<span class="tap">点一下复制</span></button>
+    </div>
+  </article>
+
+  <!-- 野生蓓妮 -->
+  <article class="card" data-tag="benny" id="c-benny">
+    <button class="card-head"><span class="ch-txt"><b>野生蓓妮 · 面部肌肉普拉提</b><em>让肌肉主动工作，自然往上走。</em></span><span class="caret"></span></button>
+    <div class="card-body">
+      <h4>适合谁</h4>
+      <ul>
+        <li>面部松垂、馒化</li>
+        <li>想要轮廓提升、皮肉贴合</li>
+        <li>不想要僵硬感的</li>
+        <li>认同"美是养出来的"那类客人</li>
+      </ul>
+      <h4>做完什么感觉</h4>
+      <button class="q">做完最直观的感受，是一种扎实的轻盈。轮廓紧了：下颌线清晰，苹果肌饱满。但表情活了：大笑、挑眉，所有生动情绪都在<span class="tap">点一下复制</span></button>
+      <h4>单次能看到什么</h4>
+      <p>面颊凹陷的地方平了 / 下颌线清晰了 / 口角纹路淡了<br>抬头纹眉间纹改善 / 苹果肌复位 / 改善浮肿感 / 下颌线收紧</p>
+      <h4>可直接引用</h4>
+      <button class="q">不是让你「不做表情」的僵硬，是让你「做表情更好看」的灵动。就像普拉提重塑身体线条，面部肌肉也需要被重新教育<span class="tap">点一下复制</span></button>
+      <button class="q">把皮肤地基建牢，我们表层自然就紧致<span class="tap">点一下复制</span></button>
+      <button class="q">肌肉有力，脸就挂得住<span class="tap">点一下复制</span></button>
+      <button class="q">高阶抗衰的终极形态：一张有「力量」的脸。当我们的肌肉仍保有精致的张力，这样的自然紧实的过程，远比一次医美带来的改变更加长久和直击人心<span class="tap">点一下复制</span></button>
+      <button class="q">不要馒化，要好皮肤，要皮肉贴合、紧实轮廓，要自然、要高级的抗衰<span class="tap">点一下复制</span></button>
+      <h4>顾客问"你们怎么选的这个"</h4>
+      <button class="q">我们一直认为美是养出来的，从里面慢慢生长的那种。野生蓓妮面部肌肉普拉提，让肌肉主动工作，自然的往上走，有精气神的感觉。这个理念和我们很像，所以走到一起很自然<span class="tap">点一下复制</span></button>
+    </div>
+  </article>
+
+  <!-- GeneoX -->
+  <article class="card" data-tag="geneo" id="c-geneo">
+    <button class="card-head"><span class="ch-txt"><b>科医人 GeneoX · 以色列 Lumenis</b><em>全球唯一内增氧。做完像憋了很久终于能大口呼吸。</em></span><span class="caret"></span></button>
+    <div class="card-body">
+      <h4>适合谁</h4>
+      <ul>
+        <li>暗沉、暗黄、不通透</li>
+        <li>干燥、缺水</li>
+        <li>长期带妆、熬夜、水肿</li>
+        <li>秋冬尤其推荐</li>
+      </ul>
+      <h4>做完什么感觉（全店最好用的一句）</h4>
+      <button class="q">做完科医人geneox氧气嫩肤，脸真的有一种憋了很久终于能大口呼吸的感觉，不破皮，没有恢复期，脸上各种缺水、暗沉、不通透的小状况立刻就能调整到最佳状态，非常不夸张<span class="tap">点一下复制</span></button>
+      <h4>几个弹的分工</h4>
+      <ul>
+        <li>氧肤活力弹——基础，提亮通透</li>
+        <li>净肤弹——净肤同时保持水润</li>
+        <li>钻光弹——全链路美白，淡化色素、斑点，改善肤色不均</li>
+        <li>色修弹——镇静舒敏，急性炎症舒缓，抗自由基抗炎</li>
+      </ul>
+      <h4>顾客问原理</h4>
+      <button class="q">geneox的每一个产品当中，都会有一个氧肤活力弹，会含有碳酸氢钠，在第一步设备操作焕氧的过程当中，在表皮会产生一个化学反应，产生大量的二氧化碳。当二氧化碳布满表皮的时候，我们皮下血液循环会立即的加速，来利用它内部的血红蛋白去抓取血液当中氧气，去填补我们缺氧的部分，所以做完第一步，我们就能立刻看到效果<span class="tap">点一下复制</span></button>
+      <h4>可直接引用</h4>
+      <button class="q">血氧含量高就会白里透红，不然就是黄<span class="tap">点一下复制</span></button>
+      <button class="q">向内，肌肤含氧量增加；向外，实现肌肤「细白润嫩透」的年轻状态<span class="tap">点一下复制</span></button>
+      <button class="q">一个月两次，婴儿肌美貌还原<span class="tap">点一下复制</span></button>
+      <button class="q">美白的前提是拥有健康的皮肤状态<span class="tap">点一下复制</span></button>
+      <h4>背书</h4>
+      <p>来自全球最大的激光公司 Lumenis 科医人，目前全球唯一一款增加内源氧的设备。</p>
+    </div>
+  </article>
+
+  <!-- DMS -->
+  <article class="card" data-tag="dms" id="c-dms">
+    <button class="card-head"><span class="ch-txt"><b>德国 DMS 德妍思 dermaviduals</b><em>修护届的王者。安安静静让皮肤好起来。</em></span><span class="caret"></span></button>
+    <div class="card-body">
+      <h4>适合谁</h4>
+      <ul>
+        <li>屏障受损、敏感</li>
+        <li>换季干燥紧绷</li>
+        <li>"清洁困难脸""洗完紧绷脸"</li>
+        <li>需要长期居家维养的</li>
+      </ul>
+      <h4>产品亮点</h4>
+      <ul>
+        <li>30年品牌历史</li>
+        <li>唯一一款没有添加乳化剂的乳液</li>
+        <li>剔除不必要的香料、色素、复杂防腐体系</li>
+      </ul>
+      <h4>可直接引用</h4>
+      <button class="q">不油腻、不呼脸，狂锁水还修护的护肤单品，非德国DMS调配乳莫属了<span class="tap">点一下复制</span></button>
+      <button class="q">真正的修护，是「安安静静」让皮肤好起来<span class="tap">点一下复制</span></button>
+      <button class="q">减掉负担——剔除不必要的香料、色素、复杂防腐体系；聚焦功效——一定是要精准有结果的<span class="tap">点一下复制</span></button>
+      <button class="q">秋冬，DMS护理｜调配乳永远位居Top1，「解渴儿嫩肤」第一名<span class="tap">点一下复制</span></button>
+      <h4>常用搭配</h4>
+      <p>INDIBA 黑金刚 ＋ DMS ＝ 温感K老公式</p>
+    </div>
+  </article>
+
+  <!-- Wishpro -->
+  <article class="card" data-tag="wish" id="c-wish">
+    <button class="card-head"><span class="ch-txt"><b>Wishpro 唯施葆 · 以色列</b><em>时光胶囊。磁脉冲把成分一路送进去，不破皮，不发热。</em></span><span class="caret"></span></button>
+    <div class="card-body">
+      <h4>适合谁</h4>
+      <ul>
+        <li>想补水、想让成分真正吸收的</li>
+        <li>怕疼、怕破皮、怕恢复期的</li>
+        <li>第一次来店里、想先试试的</li>
+      </ul>
+      <h4>做完什么感觉</h4>
+      <p>不破皮，不发热，做完当下自己就感觉得到。</p>
+      <h4>我们为什么进这台（口径）</h4>
+      <button class="q">猛的设备我们不缺，缺的是把东西送进去的那一环。这台补上了。<span class="tap">点一下复制</span></button>
+      <h4>8/31 直播组合</h4>
+      <p>杏枝山特调护理·深层净肤 ＋ Wishpro 水漾弹，拍1得3<br>7天内核销加赠头肩颈SPA 1次</p>
+    </div>
+  </article>
+</section>
+
+<!-- ========== 通用高频问答 ========== -->
+<section class="sec" data-sec="qa">
+  <h2 class="sec-title">通用高频问答</h2>
+
+  <div class="qa" data-tag="qa"><b>疼吗？</b>
+    <ul>
+      <li>超离子——不停工，做完正常见人</li>
+      <li>INDIBA 面部——温和，皮下无炎症刺激，是暖的</li>
+      <li>INDIBA 头部——温热舒服，做完当晚容易犯困</li>
+      <li>海菲秀——不疼，做完看得到"小脏水"</li>
+      <li>GeneoX——不破皮，没有恢复期，过程舒适放松</li>
+      <li>Wishpro——不破皮，不发热</li>
+      <li>野生蓓妮——不僵硬，做完表情照样生动</li>
+    </ul>
+  </div>
+
+  <div class="qa" data-tag="qa"><b>要恢复期吗 / 第二天能上班吗？</b>
+    <p>以上项目都不停工。</p>
+  </div>
+
+  <div class="qa" data-tag="qa"><b>做几次能有感觉？</b>
+    <ul>
+      <li>INDIBA 面部——坚持 5 次以上，圈粉率100%</li>
+      <li>INDIBA 头部——每周1-2次，4-6周一个疗程</li>
+      <li>海菲秀——坚持几次下来，焕亮好气色藏也藏不住</li>
+      <li>GeneoX——一个月两次</li>
+      <li>野生蓓妮——单次就有对比</li>
+    </ul>
+    <p><b>统一口径：</b>单次有体感，但真想稳住，要按节奏来。</p>
+  </div>
+
+  <div class="qa" data-tag="qa"><b>和医美冲突吗？</b>
+    <p>INDIBA 不能完全替代热玛吉，更理想的方案是联合。其余项目均可与医美项目配合排期，具体看皮肤当下状态，到店判断。</p>
+  </div>
+
+  <div class="qa" data-tag="qa"><b>你们为什么比别家贵？</b>
+    <p>海菲秀口径最好用：</p>
+    <button class="q">在这个市场，就没有几个机构在用正品溶液，至少90%吧，这就是为什么很多人说你们的味道不一样、手法不一样、价格不一样<span class="tap">点一下复制</span></button>
+    <p>通用口径：</p>
+    <button class="q">设备和溶液正品，是咱们店不需要再多强调的原则和底线。不是按官方三部曲操作就可以了，对不同顾客肌肤状态进行差异化操作，每一处细节和操作节奏的打磨，是对这个项目的深度理解。<span class="tap">点一下复制</span></button>
+  </div>
+
+  <div class="qa" data-tag="qa"><b>我该做哪个？（不确定时的标准回答）</b>
+    <button class="q">不用现在定。你先说说最近皮肤让你不满意的是哪一块，我给你判断。<span class="tap">点一下复制</span></button>
+    <button class="q">或者到店做个检测，我们一起看数据。<span class="tap">点一下复制</span></button>
+  </div>
+
+  <div class="qa" data-tag="qa"><b>8.8 定金那天用不上怎么办？</b>
+    <button class="q">随时可退，我这边直接给你退。<span class="tap">点一下复制</span></button>
+    <p class="warn">这句要主动说，不要等顾客问。</p>
+  </div>
+</section>
+
+<!-- ========== 私发规矩 ========== -->
+<section class="sec" data-sec="rules">
+  <h2 class="sec-title">私发的三条规矩</h2>
+  <div class="rule"><b>1. 一次只发一两句</b><span>不要整段甩过去。这里的句子是给你挑的，不是给你复制全段的。</span></div>
+  <div class="rule"><b>2. 先问，再答</b><span>顾客说"我想了解一下"，不要直接推项目。先问一句"你最近皮肤最不满意的是哪块"，再从这里找对应的。</span></div>
+  <div class="rule"><b>3. 不确定就说不确定</b>
+    <button class="q" style="margin-top:6px">这个我得看到你的皮肤才敢说，你哪天方便来一趟。<span class="tap">点一下复制</span></button>
+    <span>这句话比任何话术都管用。</span>
+  </div>
+</section>
+
+<div class="empty" id="empty">没找到。换个词试试，比如"掉头发""痛经""贵"。</div>
+<div class="foot">2026.08 修订版 · 仅供门店内部使用</div>
+
+</div>
+
+<div class="toast" id="toast">已复制</div>
+
+<script>
+(function(){
+  var toastEl=document.getElementById('toast'),tt=null;
+  function toast(msg){
+    toastEl.textContent=msg;toastEl.classList.add('on');
+    clearTimeout(tt);tt=setTimeout(function(){toastEl.classList.remove('on')},1400);
+  }
+  function copyText(t){
+    if(navigator.clipboard&&navigator.clipboard.writeText){
+      return navigator.clipboard.writeText(t).catch(function(){return legacy(t)});
+    }
+    return legacy(t);
+  }
+  function legacy(t){
+    var ta=document.createElement('textarea');
+    ta.value=t;ta.setAttribute('readonly','');
+    ta.style.position='fixed';ta.style.left='-9999px';ta.style.top='0';
+    document.body.appendChild(ta);ta.focus();ta.select();ta.setSelectionRange(0,ta.value.length);
+    var ok=false;
+    try{ok=document.execCommand('copy')}catch(e){ok=false}
+    document.body.removeChild(ta);
+    return ok?Promise.resolve():Promise.reject(new Error('copy failed'));
+  }
+
+  /* 复制气泡 */
+  document.querySelectorAll('.q').forEach(function(b){
+    b.addEventListener('click',function(e){
+      e.stopPropagation();
+      var clone=b.cloneNode(true);
+      clone.querySelectorAll('.tap,small').forEach(function(n){n.remove()});
+      var txt=clone.innerText.trim();
+      copyText(txt).then(function(){
+        b.classList.add('copied');
+        toast('已复制，去微信粘贴');
+        setTimeout(function(){b.classList.remove('copied')},1600);
+      }).catch(function(){
+        b.classList.remove('copied');
+        toast('复制失败，请长按文字手动复制');
+      });
+    });
+  });
+
+  /* 手风琴 */
+  function setCardOpen(card,open){
+    card.classList.toggle('open',open);
+    var head=card.querySelector('.card-head');
+    if(head)head.setAttribute('aria-expanded',open?'true':'false');
+  }
+  document.querySelectorAll('.card-head').forEach(function(h,i){
+    var body=h.nextElementSibling;
+    if(body&&!body.id)body.id='card-body-'+(i+1);
+    h.setAttribute('aria-expanded',h.parentElement.classList.contains('open')?'true':'false');
+    if(body)h.setAttribute('aria-controls',body.id);
+    h.addEventListener('click',function(){
+      setCardOpen(h.parentElement,!h.parentElement.classList.contains('open'));
+    });
+  });
+
+  /* 定位表跳转 */
+  document.querySelectorAll('.ol').forEach(function(b){
+    b.addEventListener('click',function(){
+      var t=document.getElementById(b.dataset.go);
+      if(!t)return;
+      setCardOpen(t,true);
+      setActiveChip('all');applyFilter();
+      setTimeout(function(){
+        var top=document.querySelector('.top');
+        var offset=(top?top.getBoundingClientRect().height:120)+8;
+        var y=t.getBoundingClientRect().top+window.pageYOffset-offset;
+        var reduced=window.matchMedia&&window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+        window.scrollTo({top:y,behavior:reduced?'auto':'smooth'});
+      },30);
+    });
+  });
+
+  /* 分类 */
+  var chips=document.querySelectorAll('.chip'),curTag='all';
+  function setActiveChip(tag){
+    curTag=tag;
+    chips.forEach(function(c){c.setAttribute('aria-pressed',c.dataset.tag===tag?'true':'false')});
+  }
+  chips.forEach(function(c){
+    c.addEventListener('click',function(){setActiveChip(c.dataset.tag);applyFilter()});
+  });
+
+  /* 搜索 */
+  var input=document.getElementById('s'),clr=document.getElementById('clr'),
+      empty=document.getElementById('empty');
+  var units=[].slice.call(document.querySelectorAll('.card,.qa'));
+  /* textContent 会包含折叠区里的文字，搜索“掉头发 / 痛经”等详情词也能命中。 */
+  units.forEach(function(u){u.dataset.text=u.textContent.replace(/\s+/g,'').toLowerCase()});
+
+  input.addEventListener('input',function(){
+    clr.classList.toggle('on',input.value.length>0);applyFilter();
+  });
+  clr.addEventListener('click',function(){input.value='';clr.classList.remove('on');applyFilter();input.focus()});
+
+  function applyFilter(){
+    var kw=input.value.trim().replace(/\s+/g,'').toLowerCase(),hit=0,searching=kw.length>0;
+    units.forEach(function(u){
+      var tagOk=curTag==='all'||(u.dataset.tag||'').split(' ').indexOf(curTag)>-1;
+      var kwOk=!searching||u.dataset.text.indexOf(kw)>-1;
+      var show=tagOk&&kwOk;
+      u.style.display=show?'':'none';
+      if(show){
+        hit++;
+        if(searching&&u.classList.contains('card')){
+          if(!u.classList.contains('open'))u.dataset.searchOpened='true';
+          setCardOpen(u,true);
+        }
+      }
+      if(!searching&&u.dataset.searchOpened==='true'){
+        setCardOpen(u,false);delete u.dataset.searchOpened;
+      }
+    });
+    /* 有搜索或选了分类时，藏起定位表和规矩 */
+    var side=searching||curTag!=='all';
+    document.querySelectorAll('[data-sec="ol"],[data-sec="rules"]').forEach(function(s){
+      s.style.display=side?'none':'';
+    });
+    document.querySelectorAll('[data-sec="choose"],[data-sec="proj"],[data-sec="qa"]').forEach(function(s){
+      var any=[].slice.call(s.querySelectorAll('.card,.qa')).some(function(u){return u.style.display!=='none'});
+      s.style.display=any?'':'none';
+    });
+    empty.classList.toggle('on',hit===0);
+  }
+
+  /* 分类可横滑；右侧渐隐提示还有更多，滑到末尾后自动消失。 */
+  var chipRail=document.getElementById('chips'),chipWrap=document.getElementById('chipsWrap');
+  function updateChipEdge(){
+    var atEnd=chipRail.scrollLeft+chipRail.clientWidth>=chipRail.scrollWidth-2;
+    chipWrap.classList.toggle('at-end',atEnd||chipRail.scrollWidth<=chipRail.clientWidth);
+  }
+  chipRail.addEventListener('scroll',updateChipEdge,{passive:true});
+  window.addEventListener('resize',updateChipEdge);
+  requestAnimationFrame(updateChipEdge);
+  applyFilter();
+})();
+</script>
+</body>
+</html>
+
