@@ -4,22 +4,25 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <meta name="apple-mobile-web-app-capable" content="yes">
-<meta name="apple-mobile-web-app-title" content="蜜珠儿速查">
+<meta name="apple-mobile-web-app-title" content="蜜珠儿答疑速查">
 <meta name="theme-color" content="#F4F3F1">
-<meta name="description" content="蜜珠儿门店内部项目速查，支持按项目、功效与关键词快速搜索。">
+<meta name="description" content="蜜珠儿员工项目答疑速查，支持按项目、功效与顾客问题快速搜索标准回复。">
 <link rel="canonical" href="https://quick.mizhuer-train.com/">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:type" content="website">
-<meta property="og:site_name" content="蜜珠儿项目速查">
-<meta property="og:title" content="蜜珠儿 · 项目速查">
-<meta property="og:description" content="门店内部项目速查，手机打开即可快速查询。">
+<meta property="og:site_name" content="蜜珠儿项目答疑速查">
+<meta property="og:title" content="蜜珠儿项目答疑速查｜员工内部使用">
+<meta property="og:description" content="项目答疑、项目选择与标准回复，手机打开即查。">
 <meta property="og:url" content="https://quick.mizhuer-train.com/">
 <meta property="og:image" content="https://quick.mizhuer-train.com/og.jpg">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="蜜珠儿 · 项目速查">
-<meta name="twitter:description" content="门店内部项目速查，手机打开即可快速查询。">
+<meta name="twitter:title" content="蜜珠儿项目答疑速查｜员工内部使用">
+<meta name="twitter:description" content="项目答疑、项目选择与标准回复，手机打开即查。">
 <meta name="twitter:image" content="https://quick.mizhuer-train.com/og.jpg">
-<title>蜜珠儿 · 项目速查</title>
+<meta itemprop="name" content="蜜珠儿项目答疑速查｜员工内部使用">
+<meta itemprop="description" content="项目答疑、项目选择与标准回复，手机打开即查。">
+<meta itemprop="image" content="https://quick.mizhuer-train.com/og.jpg">
+<title>蜜珠儿项目答疑速查｜员工内部使用</title>
 <style>
 :root{
   --ink:#1A1A1F;
@@ -200,7 +203,7 @@ mark{background:#F7E9A8;color:inherit;padding:0 1px;border-radius:2px}
 
 <div class="top">
   <div class="top-inner">
-    <div class="brand"><h1>蜜珠儿 · 项目速查</h1><span>对内使用</span></div>
+    <div class="brand"><h1>蜜珠儿 · 项目答疑速查</h1><span>员工内部使用</span></div>
     <div class="searchbox">
       <input id="s" type="search" aria-label="搜索项目、症状或顾客问题" placeholder="搜：掉头发 / 痛经 / 为什么比别家贵" autocomplete="off">
       <button class="clearbtn" id="clr" aria-label="清空">×</button>
@@ -662,6 +665,11 @@ mark{background:#F7E9A8;color:inherit;padding:0 1px;border-radius:2px}
 
 <script>
 (function(){
+  /* 信息层级：先查具体项目，再看项目选择建议。 */
+  var projectSection=document.querySelector('[data-sec="proj"]');
+  var chooseSection=document.querySelector('[data-sec="choose"]');
+  if(projectSection&&chooseSection)chooseSection.parentNode.insertBefore(projectSection,chooseSection);
+
   var toastEl=document.getElementById('toast'),tt=null;
   function toast(msg){
     toastEl.textContent=msg;toastEl.classList.add('on');
