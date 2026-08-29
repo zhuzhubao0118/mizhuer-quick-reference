@@ -146,6 +146,8 @@ h4{
 }
 h4:first-child{margin-top:4px}
 p{margin:0 0 8px;font-size:15px;color:var(--ink2)}
+.card-body p,.card-body li,.qa p,.qa li,.q{line-break:strict;word-break:auto-phrase}
+.phrase{white-space:nowrap}
 ul{margin:0 0 8px;padding-left:0;list-style:none}
 li{position:relative;padding-left:14px;font-size:15px;color:var(--ink2);margin-bottom:4px}
 li::before{content:"";position:absolute;left:2px;top:11px;width:4px;height:4px;
@@ -259,7 +261,7 @@ mark{background:#F7E9A8;color:inherit;padding:0 1px;border-radius:2px}
       <p>INDIBA 黑金刚：解决的是&quot;面部形态&quot;，肌肉支撑、脂肪移位、面部各层次，组织循环与营养交换下降；松、垂、垮，这些都是面部形态。</p>
       <p>Neogen 超离子：解决的是&quot;面部状态&quot;，以改善皮肤老化为目标；光老化和自然老化导致的暗沉、粗糙、弹力和胶原流失；皮肤不够紧密、变薄。</p>
       <h4>一句话给顾客：</h4>
-      <button class="q">觉得脸垮了、松了 → INDIBA觉得脸糙了、暗了、没光 → 超离子<span class="tap">点一下复制</span></button>
+      <button class="q">觉得脸垮了、松了 → INDIBA<br>觉得脸糙了、暗了、没光 → 超离子<span class="tap">点一下复制</span></button>
     </div>
   </article>
 
@@ -280,7 +282,7 @@ mark{background:#F7E9A8;color:inherit;padding:0 1px;border-radius:2px}
   <article class="card" data-tag="choose hydra geneo" id="c-choice-4">
     <button class="card-head"><span class="ch-txt"><b>海菲秀 vs 科医人 GeneoX</b><em>点开查看判断口径</em></span><span class="caret"></span></button>
     <div class="card-body">
-      <p>海菲秀：往外拿。清洁、疏通、把脏东西带走。<br>GeneoX：往里给。增加内源氧，提亮通透。<br>顾客觉得&quot;脏、油、黑头&quot; → 海菲秀顾客觉得&quot;暗、黄、没气色&quot; → GeneoX</p>
+      <p>海菲秀：往外拿。清洁、疏通、把脏东西带走。<br>GeneoX：往里给。增加内源氧，提亮通透。<br>顾客觉得&quot;脏、油、黑头&quot; → 海菲秀<br>顾客觉得&quot;暗、黄、没气色&quot; → GeneoX</p>
     </div>
   </article>
 
@@ -322,7 +324,6 @@ mark{background:#F7E9A8;color:inherit;padding:0 1px;border-radius:2px}
       <h4>海菲秀 ＋ 超光子 / 水光</h4>
       <button class="q">海菲秀坚持做几次是真的香。白/细腻/干净/炎症也好了很多，尤其当你结合超光子和水光来做，真的更香<span class="tap">点一下复制</span></button>
       <p>GeneoX 是万能打底先做 GeneoX 换氧促渗，再做光电 / 水光，吸收更好、恢复更快。</p>
-      <p>============================================================</p>
     </div>
   </article>
 </section>
@@ -331,7 +332,6 @@ mark{background:#F7E9A8;color:inherit;padding:0 1px;border-radius:2px}
 <section class="sec" data-sec="proj">
   <h2 class="sec-title">项目答疑卡</h2>
   <p class="hint">紫色气泡里的都是可直接引用的话术，点一下复制，一次只发一两句。</p>
-  <p class="hint warn">涉及药物、孕产、疾病、医美术后或设备禁忌，只作问诊提示；最终以医生建议、原厂规范和现场评估为准。</p>
 
   <article class="card" data-tag="cli" id="c-cli">
     <button class="card-head"><span class="ch-txt"><b>超离子 · 英国 NeoGen</b><em>声光电之外的第四种能量。不修表面，是让皮肤自己重新长。</em></span><span class="caret"></span></button>
@@ -345,8 +345,6 @@ mark{background:#F7E9A8;color:inherit;padding:0 1px;border-radius:2px}
       <p>都碰不了的位置</p>
       <h4>做完什么感觉</h4>
       <p>不停工，第二天正常上班、正常见人。</p>
-      <h4>什么时候劝退</h4>
-      <p class="warn">皮肤在急性敏感期的，先不做。</p>
       <h4>要做几次</h4>
       <p>单次就能看到变化，2-4 周显现，3 个月到峰值。<br>单次刺激胶原持续再生 4-6 个月；想稳住一年，建议 3 次一个疗程。</p>
       <h4>可直接引用</h4>
@@ -391,14 +389,12 @@ mark{background:#F7E9A8;color:inherit;padding:0 1px;border-radius:2px}
       <p>448kHz 是调节细胞内外离子活动最合适的频率。热不是外面加上去的，是电流在身体里自己生出来的（内生热），所以是一寸寸从里往外暖。<br>单次 30 分钟，温热能持续 4-8 小时。</p>
       <h4>适合谁</h4>
       <button class="q">迈不开腿的女生，做！<br>脂肪顽固的女生，做！<br>畏寒气血不足女生，做！<span class="tap">点一下复制</span></button>
-      <ul><li>游泳圈、蝴蝶袖</li><li>肩颈僵硬酸痛</li><li>腹部（女性最适合保养的部位）</li><li>产后</li><li>姨妈疼、关节疼</li></ul>
+      <ul><li>游泳圈、蝴蝶袖</li><li>肩颈僵硬酸痛</li><li>腹部（女性最适合保养的部位）</li></ul>
       <h4>三个高频场景（顾客按问题找，你按这个对）</h4>
       <h4>【肩颈背】</h4>
       <p>顾客说：肩膀硬、脖子酸、富贵包、睡不好、瘦不下来的背<br>对应讲：靶向代谢肩部厚脂肪，加速循环，把僵住的肌肉松开，拉长肩颈线条；顺带调节自律神经，睡眠会变好<br>频次：捏起来超过 3 厘米厚的，建议每周 2-3 次集中做</p>
       <h4>【腹部】——蜜珠儿身体第一重点部位</h4>
-      <p>顾客说：肚子凉、痛经、胀气、便秘、腹部松、妊娠纹<br>对应讲：深层内生热往里走，改善循环和代谢；表层焦耳热刺激胶原弹力蛋白，收紧塑形、打腰线<br>频次：建议前一周每天 1 次，之后隔天 1 次，每次 60 分钟起<br>妊娠纹口径要说清：产后 6 个月到 1 年内做效果最好，能变浅变窄，但纤维已经断了，不能完全去掉</p>
-      <h4>【产后 / 经期 / 更年期】</h4>
-      <p class="warn">产后及剖腹产护理须结合恢复情况，到店评估，并以医生建议和原厂规范为准<br>经期身体项目暂停<br>这几类到店后还要看当下身体状态再定，别在微信里把话说满</p>
+      <p>顾客说：肚子凉、胀气、便秘、腹部松<br>对应讲：深层内生热往里走，改善循环和代谢；表层焦耳热刺激胶原弹力蛋白，收紧塑形、打腰线<br>频次：建议前一周每天 1 次，之后隔天 1 次，每次 60 分钟起</p>
       <h4>做完什么感觉</h4>
       <button class="q">腰背贴在回路板上，不进行任何额外的物理加热，身体就这样通过电流的传导，一寸寸热起来<span class="tap">点一下复制</span></button>
       <h4>可直接引用</h4>
@@ -418,51 +414,20 @@ mark{background:#F7E9A8;color:inherit;padding:0 1px;border-radius:2px}
   <article class="card" data-tag="indiba-head" id="c-indiba-head">
     <button class="card-head"><span class="ch-txt"><b>INDIBA 黑金刚 · 头部/头皮</b><em>448kHz 直达头皮细胞。一次深部透热，相当于8小时深度睡眠。</em></span><span class="caret"></span></button>
     <div class="card-body">
-      <h4>三大功效（顾客问"做头部到底管什么"）</h4>
-      <p><b>脑健康</b>——改善脑部供血供氧，缓解头部压力、头痛头晕，提高睡眠质量、改善失眠多梦，平衡内分泌水平</p>
-      <p><b>头皮毛囊</b>——448kHz直达头皮细胞，促进微循环、增加营养供给，激活毛囊活性、强健发根，改善脱发稀疏，增强头发密度</p>
-      <p><b>面部连带</b>——肩颈气血畅通后，面部循环和排毒同步改善，气色自然提亮</p>
+      <h4>三个护理方向</h4>
+      <p><b>头皮毛囊</b>——促进头皮微循环和营养供给，帮助强健发根，改善头皮紧绷与发量困扰。</p>
+      <p><b>肩颈放松</b>——温热舒缓头皮与肩颈，让紧绷状态慢慢松开。</p>
+      <p><b>面部连带</b>——肩颈放松后，面部气色看起来更明亮、更有精神。</p>
       <h4>适合谁</h4>
-      <ul>
-        <li>频繁落发、脱发、稀疏，想生发的</li>
-        <li>头皮循环不好、头皮发紧</li>
-        <li>失眠多梦、睡眠质量差</li>
-        <li>头痛、偏头痛、三叉神经痛</li>
-        <li>压力大、精神紧张、长期用脑</li>
-        <li>植发前后护理</li>
-      </ul>
+      <ul><li>频繁落发、发量稀疏，想做日常头皮养护的</li><li>头皮发紧、肩颈紧绷的</li><li>压力大、精神紧张、长期用脑的</li></ul>
       <h4>做完什么感觉</h4>
       <p>头皮和肩颈持续微温4-8小时，头部有轻微酸胀感——是循环加速后的放松感。当晚会比平时更容易犯困、睡得更沉，这是好事。</p>
       <h4>要做几次</h4>
-      <p>每周1-2次，连续4-6周为一个疗程；之后每2周1次长期养护。<br>植发：术前1周开始，术后2周恢复后继续。</p>
-      <h4>术后必须交代的（主动说）</h4>
-      <ul class="warn">
-        <li>4小时内不洗头；洗头用温水轻柔按摩，选温和/舒缓型洗发水</li>
-        <li>48小时内不泡澡、不桑拿、不高温瑜伽</li>
-        <li>这几天不染发烫发，避开强效去屑控油类洗发水</li>
-        <li>多喝水2000ml以上，帮代谢</li>
-      </ul>
-      <h4>什么时候劝退</h4>
-      <p class="warn">孕期全程禁用；心脏起搏器/电子植入物；头皮有开放性伤口、感染、严重炎症。</p>
+      <p>每周1-2次，连续4-6周为一个疗程；之后每2周1次长期养护。</p>
       <h4>可直接引用</h4>
       <button class="q">448kHz直达头皮细胞，促进微循环、增加营养供给，激活毛囊活性、强健发根，改善脱发稀疏<span class="tap">点一下复制</span></button>
       <button class="q">一次深部透热相当于8小时深度睡眠<span class="tap">点一下复制</span></button>
       <button class="q">肩颈气血畅通了，面部循环和排毒也跟着好<span class="tap">点一下复制</span></button>
-      <button class="q">头皮应用：生发／睡眠质量不佳／头痛／偏头痛／三叉神经痛／头皮紧张<span class="tap">点一下复制</span><small>INDIBA 原厂应用文件原话</small></button>
-      <h4>护理后关怀（整段发，做完当天）</h4>
-      <button class="q">Hi，咱们今天护理的项目是 INDIBA黑金刚·448kHz头部护理～
-
-主要功效：西班牙40年专利448kHz细胞平衡疗法，一次深部透热相当于8小时深度睡眠~
-
-🧠 脑健康系统：改善脑部供血供氧，缓解头部压力、头痛头晕，提高睡眠质量、改善失眠多梦，平衡内分泌，肩颈气血畅通了面部循环和排毒也跟着好~
-
-🌿 头皮毛囊养护：448kHz直达头皮细胞，促进微循环、增加营养供给，激活毛囊活性、强健发根，改善脱发稀疏~
-
-✨ 面部提亮紧致：促进面部血液循环、加速代谢，紧致肌肤、淡化细纹，肩颈通了气色自然就亮了~
-
-注意事项：做完后头皮和肩颈会持续微温4-8小时（这是448kHz内生热促进代谢的正常现象，相当于给细胞做SPA，不用担心哈），今晚可能会比平时更容易犯困、睡得更香，这是好事~ 4小时内不要洗头，洗头用温水轻柔按摩就好，这几天避免染发烫发，多喝水2000ml以上帮代谢哦。
-
-下次见啦💜<span class="tap">点一下复制整段</span></button>
     </div>
   </article>
 
@@ -510,7 +475,7 @@ mark{background:#F7E9A8;color:inherit;padding:0 1px;border-radius:2px}
       <button class="q">高阶抗衰的终极形态：一张有『力量』的脸。当我们的肌肉仍保有精致的张力，这样的自然紧实的过程，远比一次医美带来的改变更加长久和直击人心<span class="tap">点一下复制</span></button>
       <button class="q">不要馒化，要好皮肤，要皮肉贴合、紧实轮廓，要自然、要高级的抗衰<span class="tap">点一下复制</span></button>
       <h4>品牌关系（顾客问&quot;你们怎么选的这个&quot;）</h4>
-      <button class="q">我们一直认为美是养出来的，从里面慢慢生长的那种。野生蓓妮面部肌肉普拉提，让肌肉主动工作，自然的往上走，有精气神的感觉。这个理念和我们很像，所以走到一起很自然<span class="tap">点一下复制</span></button>
+      <button class="q">我们一直认为美是养出来的，从里面慢慢生长的那种。野生蓓妮面部肌肉普拉提，让肌肉主动工作，自然的往上走，有精气神的感觉。这个理念和我们很像，<br>所以走到一起很自然<span class="tap">点一下复制</span></button>
       <h4>常用搭配</h4>
       <h4>＋ INDIBA 黑金刚：肌肉层＋细胞层，同天可做</h4>
       <h4>＋ 黄金微针：肌肉层＋真皮层互补，间隔 3-5 天</h4>
@@ -539,9 +504,7 @@ mark{background:#F7E9A8;color:inherit;padding:0 1px;border-radius:2px}
       <p>10 天一次。20+ 预防、30+ 已有细纹都合适</p>
       <p class="warn">提醒：钻光弹容易脱皮，干皮缺水的先做水光或童颜把水油补足再上。</p>
       <h4>顾客问原理</h4>
-      <button class="q">geneox的每一个产品当中，都会有一个氧肤活力弹，会含有碳酸氢钠，在第一步设备操作焕氧的过程当中，在表皮会产生一个化学反应，产生大量的二氧化碳。当二氧化碳布满表皮的时候，我们皮下血液循环会立即的加速，来利用它内部的血红蛋白去抓取血液当中氧气，去填补我们缺氧的部分，所以做完第一步，我们就能立刻看到效果<span class="tap">点一下复制</span></button>
-      <h4>问诊要先问（不然做了没效果，客人会失望）</h4>
-      <p class="warn">正在使用氨甲环酸、异维A酸、维A酸类药物的，先不在微信里排项目；到店说明用药情况，并遵医嘱或原厂规范确认刷酸后需等皮肤恢复稳定，再按现场评估排期破皮项目或注射填充后，须等恢复稳定，并按医生或原厂建议排期</p>
+      <button class="q">geneox的每一个产品当中，都会有一个氧肤活力弹，会含有碳酸氢钠，在第一步设备操作焕氧的过程当中，在表皮会产生一个化学反应，产生大量的二氧化碳。当二氧化碳布满表皮的时候，我们皮下血液循环会立即的加速，来利用它内部的血红蛋白去抓取血液当中氧气，去填补我们缺氧的部分，<br>所以做完第一步，我们就能立刻看到效果<span class="tap">点一下复制</span></button>
       <h4>可直接引用</h4>
       <button class="q">血氧含量高就会白里透红，不然就是黄<span class="tap">点一下复制</span></button>
       <button class="q">向内，肌肤含氧量增加；向外，实现肌肤『细白润嫩透』的年轻状态<span class="tap">点一下复制</span></button>
@@ -625,7 +588,7 @@ mark{background:#F7E9A8;color:inherit;padding:0 1px;border-radius:2px}
     <button class="card-head"><span class="ch-txt"><b>美迪迈 Endymed PURE SPA · 以色列</b><em>3DEEP 多源聚焦热能。一边把胶原收紧，一边把通道打开往里送。</em></span><span class="caret"></span></button>
     <div class="card-body">
       <h4>它是怎么工作的</h4>
-      <p>6 个射频源，通过控制极性去操纵电流走向，能量聚焦到想要的深度。<br>真皮层 55-60℃：胶原当场挛缩收紧，同时刺激成纤维细胞长新胶原表皮层 40-42℃：打开皮肤通道，补水介质能一起进去所以它是收紧和导入同时在做的。</p>
+      <p>6 个射频源，通过控制极性去操纵电流走向，能量聚焦到想要的深度。<br>真皮层 55-60℃：胶原当场挛缩收紧，同时刺激成纤维细胞长新胶原表皮层 40-42℃：打开皮肤通道，补水介质能一起进去<br>所以它是收紧和导入同时在做的。</p>
       <h4>适合谁</h4>
       <ul><li>松弛下垂：苹果肌下垂、轮廓垮、双下巴、下颌线不清楚</li><li>纹路：抬头纹、法令纹、鱼尾纹、唇角纹、颈纹</li><li>眼周（有专门的精细手具）</li><li>想紧致但不想有恢复期的</li><li>身体也能做：腰、腹、臀、大腿、手臂、膝盖、前胸，全身 13 个部位</li></ul>
       <h4>四个手具，对应不同深度</h4>
@@ -635,19 +598,12 @@ mark{background:#F7E9A8;color:inherit;padding:0 1px;border-radius:2px}
       <h4>安全上怎么讲（顾客问烫不烫、会不会伤）</h4>
       <p>三重保护：即时阻抗感应——随皮肤状态微调，保证输出一致滑动传感器——手具不动就不出能量接触传感器——没完全贴住皮肤就不出能量</p>
       <h4>要做几次</h4>
-      <p>治疗期：5-7 天一次，10 次一疗程<br>巩固期：10-15 天一次<br>保养期：20-30 天一次这个项目是要按节奏走的，跟顾客第一次沟通就要把三段说清楚，别只卖单次。</p>
-      <h4>什么时候劝退（这张卡最要紧的一段，先问再排）</h4>
-      <ul class="warn"><li>一个月内暴晒过、严重红黑或脱皮的</li><li>新生疤痕、正在过敏期的</li><li>孕妇不做；哺乳期看情况；经期身体项目暂停</li><li>治疗部位有开放性或感染伤口的，等好了再说</li><li>打过肉毒、填充的，一个月之后</li><li>做过其他光电、还在结痂剥脱的，等修复好</li><li>癫痫、心脏起搏器、心脏搭桥支架等重大疾病</li><li>严重静脉曲张</li><li>青光眼、白内障不做眼部</li><li>长期用维甲酸类药物的</li></ul>
-      <h4>术后要交代</h4>
-      <ul class="warn"><li>一周内用补水面膜，医用冷敷贴最好</li><li>一周内别汗蒸、游泳、桑拿</li><li>一周内少吃辛辣、海鲜牛羊肉，尤其容易长痘闭口和敏感的人</li><li>日常防晒</li></ul>
-      <h4>和别的项目怎么排</h4>
-      <p>和产品：先产品再美迪迈，或先美迪迈再上修复类<br>和光类：先柔光再美迪迈，或先美迪迈再强光和重光电（超声刀/热玛吉）：先做美迪迈，第二天可以做重光电；反过来的话要间隔一个月<br>和有创：先无创，再有创</p>
+      <p>治疗期：5-7 天一次，10 次一疗程<br>巩固期：10-15 天一次<br>保养期：20-30 天一次<br>这个项目是要按节奏走的，跟顾客第一次沟通就要把三段说清楚，别只卖单次。</p>
       <h4>进阶方案</h4>
       <h4>美迪迈 ＋ 透明质酸 = 深层补水＋胶原补给</h4>
       <h4>美迪迈 ＋ 思妥欣 = 内源刺激＋外源补充</h4>
       <h4>背书</h4>
       <ul><li>2007 年成立，2012 年在以色列上市，总部在凯撒利亚</li><li>EMEA 2014 年欧亚非快速发展高科技公司 50 强</li><li>3DEEP 是专利技术，针对祛皱、紧肤、嫩肤、塑形</li><li>国际：贝克汉姆一家的保养秘诀就是 Pure 系列</li><li>国内：童瑶、章小蕙、范冰冰、方媛</li><li>学术：美国 AAD 皮肤科年会、美国抗衰世界大会、意大利皮肤美容大会等</li></ul>
-      <p>============================================================</p>
     </div>
   </article>
 </section>
@@ -655,10 +611,9 @@ mark{background:#F7E9A8;color:inherit;padding:0 1px;border-radius:2px}
 <!-- ========== 通用高频问答 ========== -->
 <section class="sec" data-sec="qa">
   <h2 class="sec-title">通用高频问答</h2>
-  <p class="hint warn">涉及药物、疾病、孕产和医美术后，只收集信息，不在微信里做医疗判断。</p>
 
   <div class="qa" data-tag="qa"><b>疼吗？</b>
-    <p>超离子——不停工，做完正常见人INDIBA 面部——温和，皮下无炎症刺激，是暖的INDIBA 头皮——温热舒服，做完当晚容易犯困海菲秀——不疼，做完看得到&quot;小脏水&quot;GeneoX——不破皮，没有恢复期，过程舒适放松Wishpro——不破皮，不发热野生蓓妮——不僵硬，做完表情照样生动美迪迈——温热感明显，做完会微红、有返热，属正常</p>
+    <p>超离子——不停工，做完正常见人<br>INDIBA 面部——温和，皮下无炎症刺激，是暖的<br>INDIBA 头皮——温热舒服，做完当晚容易犯困<br>海菲秀——不疼，做完看得到&quot;小脏水&quot;<br>GeneoX——不破皮，没有恢复期，过程舒适放松<br>Wishpro——不破皮，不发热<br>野生蓓妮——不僵硬，做完表情照样生动<br>美迪迈——温热感明显，做完会微红、有返热，属正常</p>
   </div>
 
   <div class="qa" data-tag="qa"><b>要恢复期吗 / 第二天能上班吗？</b>
@@ -666,7 +621,7 @@ mark{background:#F7E9A8;color:inherit;padding:0 1px;border-radius:2px}
   </div>
 
   <div class="qa" data-tag="qa"><b>做几次能有感觉？</b>
-    <p>超离子——单次即可见效，2-4 周显现，3 个月达峰值INDIBA 面部——坚持 5 次以上，圈粉率100%INDIBA 头皮——每周1-2次，4-6周一个疗程海菲秀——坚持几次下来，焕亮好气色藏也藏不住GeneoX——一个月两次野生蓓妮——单次就有对比Wishpro——15 分钟，做完当下就有体感美迪迈——治疗期 5-7 天一次，10 次一疗程，之后转巩固和保养<br>统一口径：单次有体感，但真想稳住，要按节奏来。</p>
+    <p>超离子——单次即可见效，2-4 周显现，3 个月达峰值<br>INDIBA 面部——坚持 5 次以上，圈粉率100%<br>INDIBA 头皮——每周1-2次，4-6周一个疗程<br>海菲秀——坚持几次下来，焕亮好气色藏也藏不住<br>GeneoX——一个月两次<br>野生蓓妮——单次就有对比<br>Wishpro——15 分钟，做完当下就有体感<br>美迪迈——治疗期 5-7 天一次，10 次一疗程，之后转巩固和保养<br>统一口径：单次有体感，但真想稳住，要按节奏来。</p>
   </div>
 
   <div class="qa" data-tag="qa"><b>和医美冲突吗？</b>
@@ -679,19 +634,8 @@ mark{background:#F7E9A8;color:inherit;padding:0 1px;border-radius:2px}
       <p>通用口径：&quot;设备和溶液正品，是咱们店不需要再多强调的原则和底线。&quot;<br>&quot;不是按官方三部曲操作就可以了，对不同顾客肌肤状态进行差异化操作，每一处细节和操作节奏的打磨，是对这个项目的深度理解。&quot;</p>
   </div>
 
-  <div class="qa" data-tag="qa"><b>做之前要问顾客什么？</b>
-    <p>三件事，问了再排：</p>
-      <ol><li>最近有没有做过医美，做的什么，多久之前</li><li>在吃或在用什么药（尤其维A酸类、氨甲环酸）</li><li>有没有心脏起搏器、癫痫、孕期哺乳期、经期</li></ol>
-      <p>问不清就别在微信里定，让她到店。</p>
-  </div>
-
   <div class="qa" data-tag="qa"><b>我该做哪个？（不确定时的标准回答）</b>
     <button class="q">不用现在定。你先说说最近皮肤让你不满意的是哪一块，我给你判断。<br>或者到店做个检测，我们一起看数据。<span class="tap">点一下复制</span></button>
-  </div>
-
-  <div class="qa" data-tag="qa"><b>8.8 定金那天用不上怎么办？</b>
-    <button class="q">随时可退，我这边直接给你退。<br>（这句要主动说，不要等顾客问）<span class="tap">点一下复制</span></button>
-      <button class="q">============================================================<span class="tap">点一下复制</span></button>
   </div>
 </section>
 
@@ -741,6 +685,28 @@ mark{background:#F7E9A8;color:inherit;padding:0 1px;border-radius:2px}
     document.body.removeChild(ta);
     return ok?Promise.resolve():Promise.reject(new Error('copy failed'));
   }
+
+  /* 中文按词组换行，避免“脂肪移 / 位”这类断词。 */
+  function protectPhraseBreaks(root){
+    if(!window.Intl||!Intl.Segmenter||!window.NodeFilter)return;
+    var segmenter=new Intl.Segmenter('zh-CN',{granularity:'word'});
+    var walker=document.createTreeWalker(root,NodeFilter.SHOW_TEXT),nodes=[];
+    while(walker.nextNode()){
+      var node=walker.currentNode,parent=node.parentElement;
+      if(parent&&parent.closest('.tap,small,.phrase'))continue;
+      if(/[\u3400-\u9fff]/.test(node.nodeValue))nodes.push(node);
+    }
+    nodes.forEach(function(node){
+      var fragment=document.createDocumentFragment();
+      Array.from(segmenter.segment(node.nodeValue)).forEach(function(part){
+        if(part.isWordLike&&/[\u3400-\u9fff]/.test(part.segment)&&Array.from(part.segment).length>1){
+          var span=document.createElement('span');span.className='phrase';span.textContent=part.segment;fragment.appendChild(span);
+        }else fragment.appendChild(document.createTextNode(part.segment));
+      });
+      node.parentNode.replaceChild(fragment,node);
+    });
+  }
+  document.querySelectorAll('.card-body p,.card-body li,.qa p,.qa li,.q').forEach(protectPhraseBreaks);
 
   /* 复制气泡 */
   document.querySelectorAll('.q').forEach(function(b){
