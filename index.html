@@ -148,6 +148,8 @@ h4:first-child{margin-top:4px}
 p{margin:0 0 8px;font-size:15px;color:var(--ink2)}
 .card-body p,.card-body li,.qa p,.qa li,.q{line-break:strict;word-break:auto-phrase}
 .phrase{white-space:nowrap}
+.price{display:flex;align-items:baseline;justify-content:space-between;gap:12px;padding:6px 0;margin:0;border-bottom:1px dashed var(--line)}
+.price span{min-width:0}.price b{flex:0 0 auto;color:var(--plum);font-size:13px;font-weight:600;white-space:nowrap}
 ul{margin:0 0 8px;padding-left:0;list-style:none}
 li{position:relative;padding-left:14px;font-size:15px;color:var(--ink2);margin-bottom:4px}
 li::before{content:"";position:absolute;left:2px;top:11px;width:4px;height:4px;
@@ -224,6 +226,7 @@ mark{background:#F7E9A8;color:inherit;padding:0 1px;border-radius:2px}
         <button class="chip" data-tag="dms" aria-pressed="false">DMS</button>
         <button class="chip" data-tag="wish" aria-pressed="false">Wishpro</button>
         <button class="chip" data-tag="endymed" aria-pressed="false">美迪迈</button>
+        <button class="chip" data-tag="xianse" aria-pressed="false">仙瑟</button>
         <button class="chip" data-tag="qa" aria-pressed="false">常见问答</button>
       </div>
     </div>
@@ -247,6 +250,7 @@ mark{background:#F7E9A8;color:inherit;padding:0 1px;border-radius:2px}
     <button class="ol" data-go="c-dms"><b>德国 DMS 德妍思</b><i>修护届的王者。安安静静让皮肤好起来。</i></button>
     <button class="ol" data-go="c-wish"><b>Wishpro 唯施葆 · 以色列</b><i>时光胶囊。磁脉冲把成分一路送进去，不破皮，不发热。</i></button>
     <button class="ol" data-go="c-endymed"><b>美迪迈 Endymed · 以色列</b><i>3DEEP 多源聚焦热能。一边把胶原收紧，一边把通道打开往里送。</i></button>
+    <button class="ol" data-go="c-xianse"><b>仙瑟 C'est Ca · 问题肌专业修护</b><i>问题肌的专业修护线。斑、敏、痘，一支一支对着问题解。</i></button>
   </div>
 </section>
 
@@ -292,14 +296,14 @@ mark{background:#F7E9A8;color:inherit;padding:0 1px;border-radius:2px}
       <p>INDIBA：448kHz 内生热，41-42℃，从细胞层面走，温和、累积，面部身体都能做，做完温热还能持续 4-8 小时。</p>
       <p>美迪迈：3DEEP 六个能量源聚焦，真皮层 55-60℃，胶原当场挛缩收紧；同时表皮控在 40-42℃，把通道打开，精华能一起送进去。</p>
       <h4>一句话给顾客：</h4>
-      <button class="q">想要当次就有紧致感、而且要补进去 → 美迪迈想长期养、连身体一起管 → INDIBA两个不冲突，节奏错开排就行。<span class="tap">点一下复制</span></button>
+      <button class="q">想要当次就有紧致感、而且要补进去 → 美迪迈<br>想长期养、连身体一起管 → INDIBA<br>两个不冲突，节奏错开排就行。<span class="tap">点一下复制</span></button>
     </div>
   </article>
 
   <article class="card" data-tag="choose endymed cli" id="c-choice-6">
     <button class="card-head"><span class="ch-txt"><b>美迪迈 vs 超离子</b><em>点开查看判断口径</em></span><span class="caret"></span></button>
     <div class="card-body">
-      <p>超离子改的是皮肤本身的质地和再生。<br>美迪迈改的是深层结构的收紧，顺带把导入这一环做了。<br>顾客说&quot;糙、暗、毛孔&quot; → 超离子顾客说&quot;松、垂、法令纹、双下巴、颈纹&quot; → 美迪迈</p>
+      <p>超离子改的是皮肤本身的质地和再生。<br>美迪迈改的是深层结构的收紧，顺带把导入这一环做了。<br>顾客说&quot;糙、暗、毛孔&quot; → 超离子<br>顾客说&quot;松、垂、法令纹、双下巴、颈纹&quot; → 美迪迈</p>
     </div>
   </article>
 
@@ -323,7 +327,14 @@ mark{background:#F7E9A8;color:inherit;padding:0 1px;border-radius:2px}
       <p>&quot;高智『温感K老公式』细胞年轻态的神仙组合&quot;相比于干燥肌肤，热能刺激后带来的损伤和修复困难，这款根源K老组合，更温润、持久、效果优异。</p>
       <h4>海菲秀 ＋ 超光子 / 水光</h4>
       <button class="q">海菲秀坚持做几次是真的香。白/细腻/干净/炎症也好了很多，尤其当你结合超光子和水光来做，真的更香<span class="tap">点一下复制</span></button>
-      <p>GeneoX 是万能打底先做 GeneoX 换氧促渗，再做光电 / 水光，吸收更好、恢复更快。</p>
+      <p>GeneoX 是万能打底<br>先做 GeneoX 换氧促渗，再做光电 / 水光，吸收更好、恢复更快。</p>
+    </div>
+  </article>
+
+  <article class="card" data-tag="choose xianse" id="c-choice-8">
+    <button class="card-head"><span class="ch-txt"><b>项目做完，回家用什么</b><em>仙瑟</em></span><span class="caret"></span></button>
+    <div class="card-body">
+      <p>前面九个都是店里做的，仙瑟是那条回家的线。<br>项目是把状态推上去，产品是把状态守住。做完那阵子好看、两个月又回去了，问题基本都出在回家这一段。<br>项目做完，居家维养可以接仙瑟；日常按问题配一套带回家。</p>
     </div>
   </article>
 </section>
@@ -341,8 +352,7 @@ mark{background:#F7E9A8;color:inherit;padding:0 1px;border-radius:2px}
       <h4>一句话：它不是光，不是电，是能量的第四种形态。</h4>
       <p>再补一句给顾客：它是一台皮肤再生平台，解决的是皮肤质量和老化状态。</p>
       <h4>适合谁</h4>
-      <ul><li>想改善皮肤质地的：毛孔、粗糙、暗沉、细纹</li><li>眼周，尤其上眼皮——很多技术不敢碰这一圈</li><li>口周、颈部</li><li>认同长期主义保养的人</li><li>上眼睑显疲、支撑感下降、眉毛跟着往下压的——这是市面上光电基本</li></ul>
-      <p>都碰不了的位置</p>
+      <ul><li>想改善皮肤质地的：毛孔、粗糙、暗沉、细纹</li><li>眼周，尤其上眼皮——很多技术不敢碰这一圈</li><li>口周、颈部</li><li>认同长期主义保养的人</li><li>上眼睑显疲、支撑感下降、眉毛跟着往下压的——这是市面上光电基本都碰不了的位置</li></ul>
       <h4>做完什么感觉</h4>
       <p>不停工，第二天正常上班、正常见人。</p>
       <h4>要做几次</h4>
@@ -355,9 +365,7 @@ mark{background:#F7E9A8;color:inherit;padding:0 1px;border-radius:2px}
       <button class="q">眼部抗衰—英国超离子无瑕嫩肤—英国超离子紧致小脸—英国超离子击退颈纹—英国超离子<span class="tap">点一下复制</span></button>
       <button class="q">做完超离子 24 小时内，透皮效率增加 8-10 倍。所以它也很适合当打底，后面上什么都吸得进去<span class="tap">点一下复制</span></button>
       <h4>背书（顾客问&quot;这个牌子行不行&quot;时用）</h4>
-      <ul><li>荣获 2026 年度最佳设备奖（伦敦 ACE 国际美学会议）</li><li>英国 Vogue：凯特王妃的面部护理师 Teresa Tarmey，婚礼前四周密集</li></ul>
-      <p>护理，NeoGen 超离子是其中一项</p>
-      <ul><li>门店 2 万发实战内训</li></ul>
+      <ul><li>荣获 2026 年度最佳设备奖（伦敦 ACE 国际美学会议）</li><li>英国 Vogue：凯特王妃的面部护理师 Teresa Tarmey，婚礼前四周密集护理，NeoGen 超离子是其中一项</li><li>门店 2 万发实战内训</li></ul>
     </div>
   </article>
 
@@ -435,11 +443,7 @@ mark{background:#F7E9A8;color:inherit;padding:0 1px;border-radius:2px}
     <button class="card-head"><span class="ch-txt"><b>海菲秀 Syndeo · 美国 Hydrafacial</b><em>全球最棒的清洁焕肤疗程。清洁、嫩肤、提亮、补水，全效合一。</em></span><span class="caret"></span></button>
     <div class="card-body">
       <h4>要多久 / 做什么（顾客最常问时间）</h4>
-      <p>30 分钟，三步。</p>
-      <h4>第一步 净颜＋活肤——温和带走废弃角质，促进细胞活化更新</h4>
-      <p>第二步 深层清洁——把毛孔里的脏东西吸出来（这一步出&quot;小脏水&quot;）</p>
-      <h4>第三步 滋养＋修护——导入多种抗氧化保湿成分，重建健康屏障</h4>
-      <p>所以它不只是&quot;洗个脸&quot;，第三步是养屏障的。</p>
+      <p>30 分钟，三步。<br>第一步 净颜＋活肤——温和带走废弃角质，促进细胞活化更新<br>第二步 深层清洁——把毛孔里的脏东西吸出来（这一步出&quot;小脏水&quot;）<br>第三步 滋养＋修护——导入多种抗氧化保湿成分，重建健康屏障<br>所以它不只是&quot;洗个脸&quot;，第三步是养屏障的。</p>
       <h4>适合谁</h4>
       <ul><li>觉得脸不干净、黑头、油</li><li>梅雨天、夏天</li><li>重要场合前</li><li>想定期做的（这个项目复购最稳）</li></ul>
       <h4>做完什么感觉</h4>
@@ -488,20 +492,13 @@ mark{background:#F7E9A8;color:inherit;padding:0 1px;border-radius:2px}
       <h4>先纠正一个误解（顾客十个有八个会理解错）</h4>
       <p>不是往皮肤里&quot;打氧气&quot;、&quot;注氧&quot;。<br>是让你自己的血把氧释放出来。<br>用的是波尔效应——纯物理，不破皮、不光电。</p>
       <h4>三步是怎么走的</h4>
-      <h4>Step 1 换氧（10 分钟）——氧肤活力弹＋凝胶，表皮产生大量二氧化碳，</h4>
-      <p>血红蛋白抓氧来补，即刻提亮；同时软化老废角质和多余油脂，所以也带清洁Step 2 滋养（10 分钟）——1MHz 声波把 8ml 精华促渗到真皮层</p>
-      <h4>Step 3 紧致（10 分钟）——声波＋硅胶导头，刺激胶原、收紧提升</h4>
-      <p>一次 30 分钟，等于三个项目。</p>
+      <p>Step 1 换氧（10 分钟）——氧肤活力弹＋凝胶，表皮产生大量二氧化碳，血红蛋白抓氧来补，即刻提亮；同时软化老废角质和多余油脂，所以也带清洁<br>Step 2 滋养（10 分钟）——1MHz 声波把 8ml 精华促渗到真皮层<br>Step 3 紧致（10 分钟）——声波＋硅胶导头，刺激胶原、收紧提升一次 30 分钟，等于三个项目。</p>
       <h4>适合谁</h4>
       <ul><li>暗沉、暗黄、不通透</li><li>干燥、缺水</li><li>长期带妆、熬夜、水肿</li><li>秋冬尤其推荐</li><li>毛孔粗大、干纹细纹、敏感泛红、痘肌</li><li>做光电前打底，或光电后修复</li></ul>
       <h4>做完什么感觉（这段是全店最好用的一句，几乎人人有共鸣）</h4>
       <button class="q">做完科医人geneox氧气嫩肤，脸真的有一种憋了很久终于能大口呼吸的感觉，不破皮，没有恢复期，脸上各种缺水、暗沉、不通透的小状况立刻就能调整到最佳状态，非常不夸张<span class="tap">点一下复制</span></button>
       <h4>几个弹的分工</h4>
-      <ul><li>氧肤活力弹——基础，提亮通透</li><li>净肤弹——净肤同时保持水润</li><li>钻光弹——全链路美白，淡化色素、斑点，改善肤色不均</li><li>色修弹——镇静舒敏，急性炎症舒缓，抗自由基抗炎</li></ul>
-      <h4>· 水光弹——积雪草苷＋烟酰胺＋透明质酸＋修复油脂。补水锁水储水，</h4>
-      <p>干皮、卡粉的基础款，7-10 天一次</p>
-      <h4>· 童颜弹——红枣藻＋胜肽＋A醇＋雪绒花。从基底层往上搭，淡纹紧致，</h4>
-      <p>10 天一次。20+ 预防、30+ 已有细纹都合适</p>
+      <ul><li>氧肤活力弹——基础，提亮通透</li><li>净肤弹——净肤同时保持水润</li><li>钻光弹——全链路美白，淡化色素、斑点，改善肤色不均</li><li>色修弹——镇静舒敏，急性炎症舒缓，抗自由基抗炎</li><li>水光弹——积雪草苷＋烟酰胺＋透明质酸＋修复油脂。补水锁水储水，干皮、卡粉的基础款，7-10 天一次</li><li>童颜弹——红枣藻＋胜肽＋A醇＋雪绒花。从基底层往上搭，淡纹紧致，10 天一次。20+ 预防、30+ 已有细纹都合适</li></ul>
       <p class="warn">提醒：钻光弹容易脱皮，干皮缺水的先做水光或童颜把水油补足再上。</p>
       <h4>顾客问原理</h4>
       <button class="q">geneox的每一个产品当中，都会有一个氧肤活力弹，会含有碳酸氢钠，在第一步设备操作焕氧的过程当中，在表皮会产生一个化学反应，产生大量的二氧化碳。当二氧化碳布满表皮的时候，我们皮下血液循环会立即的加速，来利用它内部的血红蛋白去抓取血液当中氧气，去填补我们缺氧的部分，<br>所以做完第一步，我们就能立刻看到效果<span class="tap">点一下复制</span></button>
@@ -543,22 +540,16 @@ mark{background:#F7E9A8;color:inherit;padding:0 1px;border-radius:2px}
       <h4>一套系统 = 1 ＋ 4 ＋ 13</h4>
       <p>1 个手柄：持续提供磁脉冲能量<br>4 个磁能科技头：按不同问题给不同波段<br>13 颗光环胶囊：海绵内芯包着不同成分，胶囊里植入芯片，能识别使用情况</p>
       <h4>四个头分别管什么</h4>
-      <p>胭脂红头 610-660nm——润泽修复。促循环、抗炎、激活胶原弹力蛋白，换季维稳最常用孔雀蓝头 425-470nm——舒红战痘。抑菌、控油、改善粉刺痘痘和炎症泛红微电黄头 500μA——紧致塑颜。微电流按摩肌肉，淡纹、线条清晰</p>
-      <h4>间歇性绿头——活力焕采。磁脉冲＋微振动，促代谢、促循环、改善淋巴</h4>
+      <p>胭脂红头 610-660nm——润泽修复。促循环、抗炎、激活胶原弹力蛋白，换季维稳最常用<br>孔雀蓝头 425-470nm——舒红战痘。抑菌、控油、改善粉刺痘痘和炎症泛红<br>微电黄头 500μA——紧致塑颜。微电流按摩肌肉，淡纹、线条清晰<br>间歇性绿头——活力焕采。磁脉冲＋微振动，促代谢、促循环、改善淋巴</p>
       <h4>13 颗胶囊，四个色系</h4>
       <h4>【吉金色系 · 黄金御龄】</h4>
-      <p>驻颜 Wish Age Control——老龄肌，饱满弹润，28 天提升 93% 弹性元气 Wish Contour——都市亚健康肌，15 分钟就能看到轮廓紧致、肤色提亮自愈 Wish Care——深海 Abyssine®657，受损肌的&quot;隐形绷带&quot;，即刻舒缓镇静</p>
+      <p>驻颜 Wish Age Control——老龄肌，饱满弹润，28 天提升 93% 弹性<br>元气 Wish Contour——都市亚健康肌，15 分钟就能看到轮廓紧致、肤色提亮<br>自愈 Wish Care——深海 Abyssine®657，受损肌的&quot;隐形绷带&quot;，即刻舒缓镇静</p>
       <h4>【正青色系 · 科技修颜】</h4>
-      <p>赋能 NeoEnergy——明星成分 Neodermyl®，15 天改善皱纹深度与宽窄屏障 Repairing——两种分子量玻尿酸，干敏肌的一层盾牌</p>
-      <h4>耀白 Brightening——B-White™＋SeaShine™，暗黄和色沉</h4>
+      <p>赋能 NeoEnergy——明星成分 Neodermyl®，15 天改善皱纹深度与宽窄<br>屏障 Repairing——两种分子量玻尿酸，干敏肌的一层盾牌<br>耀白 Brightening——B-White™＋SeaShine™，暗黄和色沉</p>
       <h4>【苏梅色系 · 即时高能】</h4>
-      <p>焕活 Collagen——深海鱼高纯度胶原，熟龄肌</p>
-      <h4>水盈 Hyaluronic——大小分子玻尿酸＋杜氏盐藻，特干肌</h4>
-      <p>抚痕 BTX——六胜肽-8，动态纹（抬头纹、川字纹、法令纹、鱼尾纹）※ 抚痕不能用在敏感或晒伤的皮肤上</p>
+      <p>焕活 Collagen——深海鱼高纯度胶原，熟龄肌<br>水盈 Hyaluronic——大小分子玻尿酸＋杜氏盐藻，特干肌<br>抚痕 BTX——六胜肽-8，动态纹（抬头纹、川字纹、法令纹、鱼尾纹）※ 抚痕不能用在敏感或晒伤的皮肤上</p>
       <h4>【翠微色系 · 自然精粹】</h4>
-      <p>再生 Rejuvenation——99.5% 乳木果油，疤痕、妊娠纹</p>
-      <h4>舒缓 Calming Milk——金盏菊＋向日葵籽油，年轻肌、痤疮粉刺</h4>
-      <p>净面 Peel Exfoliator——甜杏仁＋Biogommage™，油痘肌敏感肌也能用的去角质逆时 Anti-Aging——100% 荷荷巴油，跟人体皮脂极像，任何肤质都能用</p>
+      <p>再生 Rejuvenation——99.5% 乳木果油，疤痕、妊娠纹<br>舒缓 Calming Milk——金盏菊＋向日葵籽油，年轻肌、痤疮粉刺<br>净面 Peel Exfoliator——甜杏仁＋Biogommage™，油痘肌敏感肌也能用的去角质<br>逆时 Anti-Aging——100% 荷荷巴油，跟人体皮脂极像，任何肤质都能用</p>
       <h4>常见问题怎么配（顾客描述 → 你心里的答案）</h4>
       <h4>敏感 → 红头 ＋ 逆时 / 元气</h4>
       <h4>干性 → 红头 ＋ 逆时 / 水盈</h4>
@@ -588,15 +579,15 @@ mark{background:#F7E9A8;color:inherit;padding:0 1px;border-radius:2px}
     <button class="card-head"><span class="ch-txt"><b>美迪迈 Endymed PURE SPA · 以色列</b><em>3DEEP 多源聚焦热能。一边把胶原收紧，一边把通道打开往里送。</em></span><span class="caret"></span></button>
     <div class="card-body">
       <h4>它是怎么工作的</h4>
-      <p>6 个射频源，通过控制极性去操纵电流走向，能量聚焦到想要的深度。<br>真皮层 55-60℃：胶原当场挛缩收紧，同时刺激成纤维细胞长新胶原表皮层 40-42℃：打开皮肤通道，补水介质能一起进去<br>所以它是收紧和导入同时在做的。</p>
+      <p>6 个射频源，通过控制极性去操纵电流走向，能量聚焦到想要的深度。<br>真皮层 55-60℃：胶原当场挛缩收紧，同时刺激成纤维细胞长新胶原<br>表皮层 40-42℃：打开皮肤通道，补水介质能一起进去<br>所以它是收紧和导入同时在做的。</p>
       <h4>适合谁</h4>
       <ul><li>松弛下垂：苹果肌下垂、轮廓垮、双下巴、下颌线不清楚</li><li>纹路：抬头纹、法令纹、鱼尾纹、唇角纹、颈纹</li><li>眼周（有专门的精细手具）</li><li>想紧致但不想有恢复期的</li><li>身体也能做：腰、腹、臀、大腿、手臂、膝盖、前胸，全身 13 个部位</li></ul>
       <h4>四个手具，对应不同深度</h4>
-      <p>iFine 1.5mm——眼周、法令纹这类精细部位Small 4mm——面部、颈部Mini-Shaper 7mm——下颌线、身体小部位Shaper 11mm——腿、臀、腰腹</p>
+      <p>iFine 1.5mm——眼周、法令纹这类精细部位<br>Small 4mm——面部、颈部<br>Mini-Shaper 7mm——下颌线、身体小部位<br>Shaper 11mm——腿、臀、腰腹</p>
       <h4>做完什么感觉</h4>
       <p>治疗部位会微微发红，会有返热的感觉，这是正常的，跟顾客提前说一句。<br>不停工。</p>
       <h4>安全上怎么讲（顾客问烫不烫、会不会伤）</h4>
-      <p>三重保护：即时阻抗感应——随皮肤状态微调，保证输出一致滑动传感器——手具不动就不出能量接触传感器——没完全贴住皮肤就不出能量</p>
+      <p>三重保护：<br>即时阻抗感应——随皮肤状态微调，保证输出一致<br>滑动传感器——手具不动就不出能量<br>接触传感器——没完全贴住皮肤就不出能量</p>
       <h4>要做几次</h4>
       <p>治疗期：5-7 天一次，10 次一疗程<br>巩固期：10-15 天一次<br>保养期：20-30 天一次<br>这个项目是要按节奏走的，跟顾客第一次沟通就要把三段说清楚，别只卖单次。</p>
       <h4>进阶方案</h4>
@@ -604,6 +595,82 @@ mark{background:#F7E9A8;color:inherit;padding:0 1px;border-radius:2px}
       <h4>美迪迈 ＋ 思妥欣 = 内源刺激＋外源补充</h4>
       <h4>背书</h4>
       <ul><li>2007 年成立，2012 年在以色列上市，总部在凯撒利亚</li><li>EMEA 2014 年欧亚非快速发展高科技公司 50 强</li><li>3DEEP 是专利技术，针对祛皱、紧肤、嫩肤、塑形</li><li>国际：贝克汉姆一家的保养秘诀就是 Pure 系列</li><li>国内：童瑶、章小蕙、范冰冰、方媛</li><li>学术：美国 AAD 皮肤科年会、美国抗衰世界大会、意大利皮肤美容大会等</li></ul>
+    </div>
+  </article>
+
+  <article class="card" data-tag="xianse" id="c-xianse">
+    <button class="card-head"><span class="ch-txt"><b>仙瑟 C'est Ca · 问题肌专业修护</b><em>问题肌的专业修护线。斑、敏、痘，一支一支对着问题解。</em></span><span class="caret"></span></button>
+    <div class="card-body">
+      <h4>它是什么（顾客一定会问&quot;这是什么牌子&quot;）</h4>
+      <p>不是设备，是产品。2013 年成立的国货院线品牌，专做问题肌，50 多个单品覆盖斑、敏、痘。<br>店里两种用法：一是院线导入（跟着项目做），二是带回家用。很多项目做完效果能不能维持，就看回家那两个月用了什么。</p>
+      <h4>适合谁</h4>
+      <ul><li>有明确问题的：黄褐斑、色沉、痘印、反复敏感、油痘、干敏</li><li>想在家把状态维持住，但不知道该买什么的</li><li>大牌用了一堆但没解决实际问题的</li></ul>
+      <h4>五大品类</h4>
+      <h4>【美白色素】</h4>
+      <p>传明酸精华（特妆字号）——全阶段黄褐斑、项目后色沉、红黑痘印<br>氨甲环酸精华（又黑又红）——红黑皮、晒后暗沉<br>四合一多效精华（抗氧化之王）——色素型稳定期、项目前后防色沉<br>包覆型亮肤精华（美白先行官）——敏肌美白、熬夜党<br>传明酸美白霜（全通路）——不适合爆痘和急敏期<br>舒缓清透防晒乳——敏肌防晒首选</p>
+      <h4>【油痘】</h4>
+      <p>B3 精华（控油净痘）——油痘肌、外油内干<br>阿魏酸精华（舒缓亮肤）——红色痘印、敏感泛红，顺带紧实<br>A 醇精华（石头痘克星）——闭口、毛孔、细纹<br>包覆型控油保湿精华——大油田，28 天收缩 14% 毛孔<br>水杨酸晚安冻膜——SPR 球缓释，家里能自己用<br>壬二酸柳兰导入精华（院线）——不适合刷酸的痘敏肌、姨妈痘救急</p>
+      <h4>【敏感】</h4>
+      <p>乳胜肽精华（急救大师）——需要集中舒缓、项目后修护<br>舒缓保湿喷雾（随身灭火器）——退红止痒，随身带<br>包覆型舒缓修护精华（情绪守护瓶）——反复敏感、油敏<br>舒缓保湿霜（集中修护霜）——正在敏感、用别的会刺痛也能用<br>B5 精华（干皮亲妈）——严重干燥、干敏肌<br>摇摇水润润肤露——油敏专属，无油无乳不闷痘</p>
+      <h4>【抗衰】</h4>
+      <p>包覆型多肽抗皱精华（多肽抗皱）——动态纹＋静态纹，敏肌抗衰首选<br>辅酶 Q10 精华（熬夜回魂丹）——35 岁后必备，项目后维持效果<br>肽类熬夜眼霜——黑眼圈、水肿型眼袋<br>城市隔离乳——最后一层防护，无需卸妆</p>
+      <h4>【保湿】</h4>
+      <p>益肤菌萃修护液（百搭之王万能水）——多数肤质、项目后修护、敏感肌<br>丰盈润泽乳霜——干皮专属<br>鸸鹋油——干裂、严重干燥<br>长效涵水凝胶（会走路的急救面膜）——晒后、项目后修护、突发干敏<br>润燥蓄水导入精华（院线）——全能打底，项目叠加都能用<br>生物洁面泡芙——智能识别，去坏油脂留好油脂</p>
+      <h4>按问题怎么配（这段最实用，背下来就能开口）</h4>
+      <h4>色素肌</h4>
+      <p>益肤菌萃5滴 → 亮肤精华2泵 → 传明酸半管 → 美白霜2-3泵 → 早上防晒</p>
+      <h4>敏感肌</h4>
+      <p>益肤菌萃5滴 → 舒缓精华全脸1管 → 阿魏酸干手干脸4滴按压 → 舒缓霜2-3泵→ 喷雾随身带</p>
+      <h4>油痘肌</h4>
+      <p>益肤菌萃5滴 → 控油精华点涂2滴或全脸1管 → B3或阿魏酸4滴按压 →摇摇保湿露或舒缓霜2泵 → 水杨酸冻膜每周2次</p>
+      <h4>抗衰紧致</h4>
+      <p>益肤菌萃5滴 → 阿魏酸4滴按压 → Q10精华3滴 → 眼霜 → 丰盈霜2泵 → 早上防晒</p>
+      <h4>两个最容易混的，要说清楚</h4>
+      <h4>传明酸 vs 氨甲环酸</h4>
+      <p>稳定状态、色沉问题 → 传明酸<br>晒后暗沉、红黑问题 → 氨甲环酸</p>
+      <h4>一句话给顾客：</h4>
+      <button class="q">两支解决的问题不一样，具体按你现在的皮肤状态来搭配。<span class="tap">点一下复制</span></button>
+      <h4>可直接引用</h4>
+      <button class="q">仙瑟专注问题肌十多年，全国 1200 多家医美机构在用，复购率 90%。<span class="tap">点一下复制</span></button>
+      <button class="q">透明仙瑟——原料可追溯、文献可参考、安全有检测、效果有证据。<span class="tap">点一下复制</span></button>
+      <button class="q">很多大牌你买的是品牌溢价，仙瑟买的是功效本身。<span class="tap">点一下复制</span></button>
+      <button class="q">项目是把状态推上去，产品是把状态守住。这两件事得一起做，不然做完那阵子好看，两个月又回去了。<span class="tap">点一下复制</span></button>
+      <h4>背书</h4>
+      <ul><li>2013 年成立，全国 30 多个省市、1200＋合作机构</li><li>专家认可：杨蓉娅（陆军总医院）、张振（上海九院）、李远宏（中国医科大一院）、卢忠（华山医院）、尹锐（西南医院）、简丹（湘雅）、梁虹（武大人民医院）</li><li>与大学、医院、国科会有学术研究合作</li><li>四大优势：高活性原料 / ATDS 油水双亲入肤系统 / 机制入手的对症配方 / 人体功效试验</li></ul>
+      <h4>价格表（只有仙瑟这一项带价，因为是产品，员工要能直接报）</h4>
+      <h4>美白色素</h4>
+      <p class="price"><span>传明酸精华</span><b>480 / 30ml</b></p>
+      <p class="price"><span>氨甲环酸精华</span><b>380 / 30ml</b></p>
+      <p class="price"><span>四合一多效精华</span><b>780 / 30ml</b></p>
+      <p class="price"><span>包覆型亮肤精华</span><b>480 / 30ml</b></p>
+      <p class="price"><span>传明酸美白霜</span><b>660 / 35ml</b></p>
+      <p class="price"><span>舒缓清透防晒乳</span><b>380 / 35ml</b></p>
+      <h4>油痘</h4>
+      <p class="price"><span>A 醇精华</span><b>480 / 30ml</b></p>
+      <p class="price"><span>B3 精华</span><b>580 / 10ml</b></p>
+      <p class="price"><span>阿魏酸精华</span><b>880 / 10ml</b></p>
+      <p class="price"><span>包覆型控油保湿精华</span><b>380 / 30ml</b></p>
+      <p class="price"><span>水杨酸晚安冻膜</span><b>268 / 35ml</b></p>
+      <p class="price"><span>壬二酸柳兰导入精华</span><b>580 / 盒（5支·院线）</b></p>
+      <h4>敏感</h4>
+      <p class="price"><span>乳胜肽精华</span><b>580 / 10ml</b></p>
+      <p class="price"><span>舒缓保湿喷雾</span><b>380 / 100ml</b></p>
+      <p class="price"><span>包覆型舒缓修护精华</span><b>380 / 30ml</b></p>
+      <p class="price"><span>舒缓保湿霜</span><b>380 / 35ml</b></p>
+      <p class="price"><span>B5 精华</span><b>380 / 10ml</b></p>
+      <p class="price"><span>摇摇水润润肤露</span><b>580 / 30ml</b></p>
+      <h4>抗衰</h4>
+      <p class="price"><span>包覆型多肽抗皱精华</span><b>580 / 30ml</b></p>
+      <p class="price"><span>辅酶 Q10 精华</span><b>580 / 10ml</b></p>
+      <p class="price"><span>肽类熬夜眼霜</span><b>580 / 20ml</b></p>
+      <p class="price"><span>城市隔离乳</span><b>380 / 30ml</b></p>
+      <h4>保湿</h4>
+      <p class="price"><span>益肤菌萃修护液</span><b>198 / 100ml</b></p>
+      <p class="price"><span>丰盈润泽乳霜</span><b>380 / 35ml</b></p>
+      <p class="price"><span>鸸鹋油</span><b>680 / 25ml</b></p>
+      <p class="price"><span>长效涵水凝胶</span><b>280 / 50ml</b></p>
+      <p class="price"><span>润燥蓄水导入精华</span><b>580 / 盒（5支·院线）</b></p>
+      <p class="price"><span>生物洁面泡芙</span><b>268 / 200ml</b></p>
     </div>
   </article>
 </section>
